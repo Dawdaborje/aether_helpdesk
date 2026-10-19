@@ -1,0 +1,6 @@
+<page extends="/helpdesk/tickets/{id}" title="Article buttons" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <xpath expr="//header" position="inside">
+    <button label="Send article" href="/helpdesk/tickets/{id}/article"/>
+    <button label="Write article" function="article_from_ticket" confirm="Start a draft article from this ticket?"/>
+  </xpath>
+</page>

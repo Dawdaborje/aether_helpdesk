@@ -1,0 +1,29 @@
+{
+  "model_id": "mdl_n5mtmo3oqs",
+  "name": "hd_ticket_tag",
+  "label": "%hd_ticket_tag%",
+  "plural_label": "%hd_ticket_tags%",
+  "icon": "tag",
+  "title_field": "ticket",
+  "fields": [
+    {
+      "id": "fld_m50fqo1xo5",
+      "name": "ticket",
+      "label": "%ticket%",
+      "type": "link",
+      "target": "hd_ticket",
+      "required": true,
+      "index": "plain"
+    },
+    {
+      "id": "fld_cv0xzmas6e",
+      "name": "tag",
+      "label": "%tag%",
+      "type": "link",
+      "target": "helpdesk.hd_tag",
+      "target_id": "mdl_hnaxfhqet3",
+      "required": true,
+      "index": "plain"
+    }
+  ]
+}

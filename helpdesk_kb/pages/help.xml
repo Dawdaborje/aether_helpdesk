@@ -1,0 +1,10 @@
+<page route="/help" title="Help centre" public="true" icon="life-buoy" sort="2">
+  <view type="list" source="kb_articles" page_size="10" open="/help/{slug}">
+    <search fields="title,summary"/>
+    <columns>
+      <column field="title" label="Article"/>
+      <column field="summary" label="About"/>
+    </columns>
+    <empty title="Nothing found" description="Try other words, or ask us for help."/>
+  </view>
+</page>

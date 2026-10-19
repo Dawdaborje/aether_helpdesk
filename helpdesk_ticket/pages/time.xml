@@ -1,0 +1,10 @@
+<page route="/helpdesk/tickets/{id}/time" title="Log time" menu="false" model="hd_time_entry" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="log_ticket_time" submit="Log" success="Time logged" redirect="/helpdesk/tickets/{id}">
+    <group title="Time on this ticket" cols="2">
+      <field name="minutes" label="Minutes" fieldType="integer" required="true"/>
+      <field name="logged_on" label="Day" fieldType="date"/>
+      <field name="billable" label="Billable" fieldType="boolean"/>
+      <field name="note" label="Note" colspan="2"/>
+    </group>
+  </view>
+</page>

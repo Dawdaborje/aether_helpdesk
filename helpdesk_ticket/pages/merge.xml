@@ -1,0 +1,8 @@
+<page route="/helpdesk/tickets/{id}/merge" title="Merge" menu="false" model="hd_ticket" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="merge_tickets" submit="Merge into" success="Merged" redirect="/helpdesk/tickets">
+    <group title="Merge this ticket into another" cols="1">
+      <field name="into" label="Keep this ticket" fieldType="many2one" source="mergeable_tickets" optionLabel="reference" entity="tickets" required="true"/>
+      <field name="force" label="Even if the customers differ" fieldType="boolean"/>
+    </group>
+  </view>
+</page>

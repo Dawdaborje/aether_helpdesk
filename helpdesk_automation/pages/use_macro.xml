@@ -1,0 +1,7 @@
+<page route="/helpdesk/tickets/{id}/macro" title="Apply a macro" menu="false" model="hd_macro" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="apply_macro_to_ticket" submit="Apply" success="Applied" redirect="/helpdesk/tickets/{id}">
+    <group title="Apply a macro to this ticket" cols="1">
+      <field name="macro" label="Macro" fieldType="many2one" source="list_macros" optionLabel="name" entity="macros" required="true"/>
+    </group>
+  </view>
+</page>

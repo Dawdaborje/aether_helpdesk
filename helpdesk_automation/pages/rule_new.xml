@@ -1,0 +1,25 @@
+<page route="/helpdesk/automation/rules/new" title="New rule" menu="false" model="hd_rule" roles="helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="create_rule" submit="Create rule" success="Rule created" redirect="/helpdesk/automation">
+    <group title="Rule" cols="2">
+      <field name="name" label="Name" required="true"/>
+      <field name="trigger" label="When" fieldType="selection" options="created, replied_by_customer, replied_by_agent, status_changed, updated, assigned, resolved, reopened, time" required="true"/>
+      <field name="rank" label="Order" fieldType="integer" help="Lower runs first."/>
+      <field name="match_mode" label="Conditions" fieldType="selection" options="all, any"/>
+      <field name="stop_after" label="Stop other rules after this one" fieldType="boolean"/>
+      <field name="once_per_ticket" label="Once per ticket" fieldType="boolean"/>
+      <field name="repeat_hours" label="Again after (hours)" fieldType="integer"/>
+      <field name="description" label="Notes" fieldType="text" colspan="2"/>
+    </group>
+    <group title="Only if (add more on the rule's page)" cols="3">
+      <field name="field" label="Look at" fieldType="selection" options="state, priority, ticket_type, team, assignee, channel, customer, requester_email, requester_domain, subject, description, tags, unassigned, waiting_for_us, reopen_count, message_count, rating, hours_open, hours_since_update, hours_since_customer_message, hours_since_agent_message, hours_to_due"/>
+      <field name="op" label="Compare" fieldType="selection" options="eq, ne, contains, not_contains, in, gt, lt, gte, lte, is_set, is_empty"/>
+      <field name="condition_value" label="With"/>
+    </group>
+    <group title="Then do (add more on the rule's page)" cols="2">
+      <field name="action" label="Action" fieldType="selection" options="set_priority, set_team, set_type, assign_agent, auto_assign, unassign, add_tag, remove_tag, change_state, add_note, send_reply, send_email, notify, escalate, set_due" required="true"/>
+      <field name="value" label="Value / message" fieldType="text"/>
+      <field name="target" label="Who or what" help="requester, assignee, team, addresses, users"/>
+      <field name="subject" label="Subject or title"/>
+    </group>
+  </view>
+</page>

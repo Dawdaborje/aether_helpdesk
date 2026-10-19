@@ -1,0 +1,56 @@
+{
+  "model_id": "mdl_b0pzcyc3ed",
+  "name": "hd_time_entry",
+  "label": "%hd_time_entry%",
+  "plural_label": "%hd_time_entrys%",
+  "icon": "clock",
+  "title_field": "note",
+  "fields": [
+    {
+      "id": "fld_g5lo50djzd",
+      "name": "ticket",
+      "label": "%ticket%",
+      "type": "link",
+      "target": "hd_ticket",
+      "required": true,
+      "index": "plain"
+    },
+    {
+      "id": "fld_nbj0ddlz2u",
+      "name": "agent",
+      "label": "%agent%",
+      "type": "string",
+      "required": true,
+      "max_length": 128,
+      "index": "plain"
+    },
+    {
+      "id": "fld_hfkvml73ct",
+      "name": "minutes",
+      "label": "%minutes%",
+      "type": "int",
+      "required": true
+    },
+    {
+      "id": "fld_yxv2kgafrf",
+      "name": "logged_on",
+      "label": "%logged_on%",
+      "type": "date",
+      "required": true
+    },
+    {
+      "id": "fld_w0h9nywt1f",
+      "name": "note",
+      "label": "%note%",
+      "type": "string",
+      "max_length": 500
+    },
+    {
+      "id": "fld_d4mx82mux4",
+      "name": "billable",
+      "label": "%billable%",
+      "type": "bool",
+      "default": false
+    }
+  ]
+}

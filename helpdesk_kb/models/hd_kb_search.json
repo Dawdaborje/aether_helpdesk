@@ -1,0 +1,40 @@
+{
+  "model_id": "mdl_pu0k8sxlj5",
+  "name": "hd_kb_search",
+  "label": "%hd_kb_search%",
+  "plural_label": "%hd_kb_searchs%",
+  "icon": "search",
+  "title_field": "query",
+  "fields": [
+    {
+      "id": "fld_al66pxsaq6",
+      "name": "query",
+      "label": "%query%",
+      "type": "string",
+      "required": true,
+      "max_length": 200,
+      "index": "plain"
+    },
+    {
+      "id": "fld_vpibpc7ckr",
+      "name": "results",
+      "label": "%results%",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "id": "fld_rwxzriryc1",
+      "name": "audience",
+      "label": "%audience%",
+      "type": "string",
+      "max_length": 20
+    },
+    {
+      "id": "fld_zzhgs6dpea",
+      "name": "at",
+      "label": "%at%",
+      "type": "datetime",
+      "index": "plain"
+    }
+  ]
+}

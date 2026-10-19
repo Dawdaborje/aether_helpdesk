@@ -1,0 +1,16 @@
+<page route="/helpdesk/csat/responses" title="Responses" model="hd_survey_response" icon="message-circle-heart" sort="81" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="list" model="hd_survey_response" source="list_survey_responses" page_size="25" default_order="-sent_at">
+    <search fields="reference,requester_email,requester_name,comment"/>
+    <filter field="state" options="Waiting=sent,Answered=answered,Expired=expired,Skipped=skipped" label="State"/>
+    <columns>
+      <column field="sent_at" label="Sent" fieldType="datetime"/>
+      <column field="reference" label="Ticket"/>
+      <column field="requester_email" label="Customer"/>
+      <column field="agent" label="Agent"/>
+      <column field="rating" label="Rating"/>
+      <column field="comment" label="Comment"/>
+      <column field="state" label="State" fieldType="badge"/>
+    </columns>
+    <empty title="No surveys yet" description="Turn surveys on in the helpdesk settings; one goes out when a ticket is solved."/>
+  </view>
+</page>

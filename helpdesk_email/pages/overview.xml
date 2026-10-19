@@ -1,0 +1,10 @@
+<page route="/helpdesk/email" title="Email" icon="mail" sort="70" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="dashboard" source="email_overview" cols="4">
+    <stat label="Mailboxes" field="mailboxes"/>
+    <stat label="Blocked senders" field="blocked_senders"/>
+    <stat label="Waiting" field="waiting"/>
+    <stat label="Failed" field="failed"/>
+    <chart title="This week, by outcome" type="pie" field="by_state" category="state" value="messages"/>
+    <chart title="This week, by mailbox" type="bar" field="by_mailbox" category="mailbox" value="messages"/>
+  </view>
+</page>

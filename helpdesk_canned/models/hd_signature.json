@@ -1,0 +1,32 @@
+{
+  "model_id": "mdl_gvjvvswesv",
+  "name": "hd_signature",
+  "label": "%hd_signature%",
+  "plural_label": "%hd_signatures%",
+  "icon": "pen-line",
+  "title_field": "owner",
+  "fields": [
+    {
+      "id": "fld_to6lu4pkon",
+      "name": "owner",
+      "label": "%owner%",
+      "type": "string",
+      "required": true,
+      "max_length": 128,
+      "index": "unique"
+    },
+    {
+      "id": "fld_sn7k5y0swb",
+      "name": "display_name",
+      "label": "%display_name%",
+      "type": "string",
+      "max_length": 200
+    },
+    {
+      "id": "fld_yyqgrvzqi2",
+      "name": "body",
+      "label": "%body%",
+      "type": "text"
+    }
+  ]
+}

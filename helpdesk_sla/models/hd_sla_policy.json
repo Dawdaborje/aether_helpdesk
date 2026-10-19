@@ -1,0 +1,169 @@
+{
+  "model_id": "mdl_r3vym108cb",
+  "name": "hd_sla_policy",
+  "label": "%hd_sla_policy%",
+  "plural_label": "%hd_sla_policys%",
+  "icon": "timer",
+  "title_field": "name",
+  "fields": [
+    {
+      "id": "fld_0urg9dup51",
+      "name": "code",
+      "label": "%code%",
+      "type": "string",
+      "required": true,
+      "max_length": 64,
+      "index": "unique"
+    },
+    {
+      "id": "fld_jdtuc0o828",
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 200
+    },
+    {
+      "id": "fld_jeb542r44a",
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "id": "fld_vpkf3wdzuy",
+      "name": "rank",
+      "label": "%rank%",
+      "type": "int",
+      "default": 100,
+      "help": "Lower is tried first; the first policy that matches the ticket is used"
+    },
+    {
+      "id": "fld_m0od2c02zi",
+      "name": "hours",
+      "label": "%hours%",
+      "type": "link",
+      "target": "hd_hours",
+      "help": "Business hours the clock runs in; none means round the clock"
+    },
+    {
+      "id": "fld_7u1p9qf3di",
+      "name": "priority",
+      "label": "%priority%",
+      "type": "link",
+      "target": "helpdesk.hd_priority",
+      "target_id": "mdl_uqpczvg35c",
+      "help": "Match only this priority"
+    },
+    {
+      "id": "fld_tmiy3orvv0",
+      "name": "ticket_type",
+      "label": "%ticket_type%",
+      "type": "link",
+      "target": "helpdesk.hd_ticket_type",
+      "target_id": "mdl_2wujlimcwq",
+      "help": "Match only this type"
+    },
+    {
+      "id": "fld_ur20veloqk",
+      "name": "team",
+      "label": "%team%",
+      "type": "link",
+      "target": "helpdesk.hd_team",
+      "target_id": "mdl_albtuhe4nn",
+      "help": "Match only this team"
+    },
+    {
+      "id": "fld_hgtr21mf6g",
+      "name": "customer",
+      "label": "%customer%",
+      "type": "link",
+      "target": "party.party",
+      "target_id": "mdl_mr76tss5ic",
+      "help": "Match only this customer"
+    },
+    {
+      "id": "fld_v854wj14jd",
+      "name": "channel",
+      "label": "%channel%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_quut9duho9",
+          "value": "web",
+          "label": "%web%"
+        },
+        {
+          "id": "opt_6lqi8ty28u",
+          "value": "email",
+          "label": "%email%"
+        },
+        {
+          "id": "opt_qekjj48j13",
+          "value": "portal",
+          "label": "%portal%"
+        },
+        {
+          "id": "opt_ll36iwy5m4",
+          "value": "phone",
+          "label": "%phone%"
+        },
+        {
+          "id": "opt_va5xmi4tkn",
+          "value": "chat",
+          "label": "%chat%"
+        },
+        {
+          "id": "opt_g35wieskeg",
+          "value": "internal",
+          "label": "%internal%"
+        },
+        {
+          "id": "opt_bdwlpex00t",
+          "value": "api",
+          "label": "%api%"
+        }
+      ],
+      "help": "Match only this channel"
+    },
+    {
+      "id": "fld_7dtzgegzk6",
+      "name": "warn_percent",
+      "label": "%warn_percent%",
+      "type": "int",
+      "default": 80,
+      "help": "Warn the assignee when this much of the time is used"
+    },
+    {
+      "id": "fld_skcwe8jzsg",
+      "name": "pause_when_pending",
+      "label": "%pause_when_pending%",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "id": "fld_upp4w701kq",
+      "name": "pause_when_on_hold",
+      "label": "%pause_when_on_hold%",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "id": "fld_a9pnbjgrm5",
+      "name": "escalate_to",
+      "label": "%escalate_to%",
+      "type": "string",
+      "max_length": 128,
+      "help": "User told when a clock is breached, besides the assignee"
+    },
+    {
+      "id": "fld_ow3ks3xorw",
+      "name": "targets",
+      "label": "%targets%",
+      "type": "child",
+      "target": "hd_sla_target",
+      "inverse": "policy",
+      "order": "position"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "model_id": "mdl_uqpczvg35c",
+  "name": "hd_priority",
+  "label": "%priority%",
+  "plural_label": "%priorities%",
+  "icon": "flag",
+  "title_field": "name",
+  "fields": [
+    {
+      "id": "fld_lbvapcepso",
+      "name": "code",
+      "label": "%code%",
+      "type": "string",
+      "required": true,
+      "max_length": 64,
+      "index": "unique"
+    },
+    {
+      "id": "fld_wjmcataqpz",
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 200
+    },
+    {
+      "id": "fld_bal4dppbgr",
+      "name": "level",
+      "label": "%level%",
+      "type": "int",
+      "required": true,
+      "default": 2,
+      "help": "1 low … 4 urgent; higher sorts first"
+    },
+    {
+      "id": "fld_bdyqmsbcmc",
+      "name": "color",
+      "label": "%color%",
+      "type": "string",
+      "max_length": 32
+    },
+    {
+      "id": "fld_xdmtgbn3n3",
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true
+    }
+  ],
+  "view": {
+    "list": [
+      "code",
+      "name",
+      "level",
+      "color",
+      "active"
+    ]
+  }
+}

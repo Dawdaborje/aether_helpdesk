@@ -1,0 +1,12 @@
+<page route="/helpdesk/sla/hours" title="Business hours" model="hd_hours" icon="clock" sort="43" roles="helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="list" model="hd_hours" source="list_business_hours" open="/helpdesk/sla/hours/{id}" create="/helpdesk/sla/hours/new" create_label="New hours">
+    <columns>
+      <column field="code" label="Code"/>
+      <column field="name" label="Name"/>
+      <column field="utc_offset_minutes" label="UTC offset (minutes)"/>
+      <column field="is_default" label="Default" fieldType="boolean"/>
+      <column field="active" label="Active" fieldType="boolean"/>
+    </columns>
+    <empty title="No business hours" description="Without hours a clock runs round the clock."/>
+  </view>
+</page>

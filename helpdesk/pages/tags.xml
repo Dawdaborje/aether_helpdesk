@@ -1,0 +1,12 @@
+<page route="/helpdesk/tags" title="Tags" model="hd_tag" menu="false" icon="hash" sort="60">
+  <view type="list" model="hd_tag" source="search_tags" create="/helpdesk/tags/new" create_label="New">
+    <search/>
+    <columns>
+      <column field="code" label="Code"/>
+      <column field="name" label="Name"/>
+      <column field="color" label="Color"/>
+      <column field="active" label="Active" fieldType="boolean"/>
+    </columns>
+    <empty title="Nothing here yet" description="Use New to add one."/>
+  </view>
+</page>

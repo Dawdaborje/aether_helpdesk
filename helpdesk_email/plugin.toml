@@ -1,0 +1,51 @@
+[plugin]
+name = "helpdesk_email"
+icon_path = "assets/logo.svg"
+label = "Email"
+version = "0.1.0"
+description = "Mail into tickets: mailboxes that route by team, type and priority, a block list, quoted-reply trimming and a retrying inbox."
+long_description = """
+Aether sends mail itself but does not fetch it, so mail arrives by being posted: a provider's inbound webhook (generic
+JSON, Resend or Postmark shapes) or a relay, or a whole raw message in a `raw` field. Each mailbox has a secret; a
+message carrying it is stored in the inbox and handled in the background. Blocked senders, messages the mail server
+marked as spam, mail loops from our own mailboxes and floods are dropped and recorded. Replies are cut down to what
+the person just wrote (the quoted conversation and signature go). The ticket plugin does the threading (by the
+reference in the subject, or by the message it answers) and replies go out from the mailbox's address. A message that
+could not be handled stays in the inbox, is retried, and can be retried by hand. Written in Rust. See docs/design.md.
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["helpdesk_ticket", "helpdesk"]
+capabilities = ["db::query", "db::mutate", "plugins::call", "scheduler::enqueue"]
+access_models = [
+  { name = "hd_mailbox", permissions = ["read", "write"] },
+  { name = "hd_email_block", permissions = ["read", "write"] },
+  { name = "hd_email_inbox", permissions = ["read", "write"] },
+]
+public_functions = ["email_inbound"]
+public_capabilities = ["db::query", "db::mutate", "scheduler::enqueue"]
+public_access_models = [
+  { name = "hd_mailbox", permissions = ["read"] },
+  { name = "hd_email_inbox", permissions = ["read", "write"] },
+]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[[schedule]]
+name = "email-retry"
+title = "Retry mail that failed"
+description = "Hands mail that could not be processed to the ticket plugin again, up to five times."
+function = "email_retry_sweep"
+cron = "*/10 * * * *"
+
+[app]
+label = "Email"
+icon = "mail"
+route = "/helpdesk/email"
+description = "Mailboxes, the inbox and blocked senders"
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "helpdesk"

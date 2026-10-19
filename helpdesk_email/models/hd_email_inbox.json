@@ -1,0 +1,133 @@
+{
+  "model_id": "mdl_slthsun6bx",
+  "name": "hd_email_inbox",
+  "label": "%hd_email_inbox%",
+  "plural_label": "%hd_email_inboxs%",
+  "icon": "inbox",
+  "title_field": "subject",
+  "fields": [
+    {
+      "id": "fld_6g8xovfr6p",
+      "name": "mailbox",
+      "label": "%mailbox%",
+      "type": "string",
+      "max_length": 200,
+      "index": "plain"
+    },
+    {
+      "id": "fld_nuqzc6fm6m",
+      "name": "from_email",
+      "label": "%from_email%",
+      "type": "string",
+      "max_length": 200,
+      "index": "plain"
+    },
+    {
+      "id": "fld_bmrofufv98",
+      "name": "from_name",
+      "label": "%from_name%",
+      "type": "string",
+      "max_length": 200
+    },
+    {
+      "id": "fld_i8i45zbq5v",
+      "name": "subject",
+      "label": "%subject%",
+      "type": "string",
+      "max_length": 300
+    },
+    {
+      "id": "fld_zo6ia5vhdx",
+      "name": "message_id",
+      "label": "%message_id%",
+      "type": "string",
+      "max_length": 300,
+      "index": "plain"
+    },
+    {
+      "id": "fld_3x0uwn2vml",
+      "name": "payload",
+      "label": "%payload%",
+      "type": "json",
+      "help": "The message as it arrived, normalised"
+    },
+    {
+      "id": "fld_yd0y6ql9yx",
+      "name": "state",
+      "label": "%state%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_eshq6udydy",
+          "value": "queued",
+          "label": "%queued%"
+        },
+        {
+          "id": "opt_tg3up2r2wp",
+          "value": "processed",
+          "label": "%processed%"
+        },
+        {
+          "id": "opt_36rvdlhb15",
+          "value": "ignored",
+          "label": "%ignored%"
+        },
+        {
+          "id": "opt_i48c48juxo",
+          "value": "blocked",
+          "label": "%blocked%"
+        },
+        {
+          "id": "opt_c36sauyoeq",
+          "value": "failed",
+          "label": "%failed%"
+        }
+      ],
+      "required": true,
+      "default": "queued",
+      "index": "plain"
+    },
+    {
+      "id": "fld_sk0w1ca5km",
+      "name": "outcome",
+      "label": "%outcome%",
+      "type": "string",
+      "max_length": 200
+    },
+    {
+      "id": "fld_cr7k7mt53o",
+      "name": "ticket",
+      "label": "%ticket%",
+      "type": "link",
+      "target": "helpdesk_ticket.hd_ticket",
+      "target_id": "mdl_ujzde8gxd6"
+    },
+    {
+      "id": "fld_s7fg289rm7",
+      "name": "error",
+      "label": "%error%",
+      "type": "string",
+      "max_length": 500
+    },
+    {
+      "id": "fld_ez02hd117w",
+      "name": "attempts",
+      "label": "%attempts%",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "id": "fld_j5imnpcpne",
+      "name": "received_at",
+      "label": "%received_at%",
+      "type": "datetime",
+      "index": "plain"
+    },
+    {
+      "id": "fld_zba0u9bcp1",
+      "name": "processed_at",
+      "label": "%processed_at%",
+      "type": "datetime"
+    }
+  ]
+}

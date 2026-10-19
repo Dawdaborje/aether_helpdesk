@@ -1,0 +1,7 @@
+<page route="/support/track/{reference}/{key}/reply" title="Write to us" public="true" menu="false">
+  <view type="form" function="portal_reply" submit="Send" success="Sent" redirect="/support/track/{reference}/{key}">
+    <group title="Your message" cols="1">
+      <field name="body" label="Message" fieldType="text" required="true"/>
+    </group>
+  </view>
+</page>

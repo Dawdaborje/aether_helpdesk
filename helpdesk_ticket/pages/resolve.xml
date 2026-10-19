@@ -1,0 +1,7 @@
+<page route="/helpdesk/tickets/{id}/resolve" title="Resolve" menu="false" model="hd_ticket" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="resolve_ticket" submit="Resolve" success="Resolved" redirect="/helpdesk/tickets/{id}">
+    <group title="Resolve" cols="1">
+      <field name="resolution" label="What fixed it" fieldType="text"/>
+    </group>
+  </view>
+</page>

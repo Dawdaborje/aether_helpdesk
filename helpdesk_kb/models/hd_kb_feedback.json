@@ -1,0 +1,45 @@
+{
+  "model_id": "mdl_6uu5ianga6",
+  "name": "hd_kb_feedback",
+  "label": "%hd_kb_feedback%",
+  "plural_label": "%hd_kb_feedbacks%",
+  "icon": "thumbs-up",
+  "title_field": "comment",
+  "fields": [
+    {
+      "id": "fld_7kaqf5br33",
+      "name": "article",
+      "label": "%article%",
+      "type": "link",
+      "target": "hd_kb_article",
+      "required": true,
+      "index": "plain"
+    },
+    {
+      "id": "fld_go9ghs9kv4",
+      "name": "helpful",
+      "label": "%helpful%",
+      "type": "bool",
+      "required": true
+    },
+    {
+      "id": "fld_v9w9f0f01z",
+      "name": "comment",
+      "label": "%comment%",
+      "type": "text"
+    },
+    {
+      "id": "fld_jhs30e7p3x",
+      "name": "who",
+      "label": "%who%",
+      "type": "string",
+      "max_length": 128
+    },
+    {
+      "id": "fld_9rc7o8e36h",
+      "name": "at",
+      "label": "%at%",
+      "type": "datetime"
+    }
+  ]
+}

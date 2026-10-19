@@ -1,0 +1,62 @@
+{
+  "model_id": "mdl_kwt17v04ct",
+  "name": "hd_kb_category",
+  "label": "%hd_kb_category%",
+  "plural_label": "%hd_kb_categorys%",
+  "icon": "folder",
+  "title_field": "name",
+  "fields": [
+    {
+      "id": "fld_zmvla7av3i",
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 200
+    },
+    {
+      "id": "fld_ohil20u1it",
+      "name": "slug",
+      "label": "%slug%",
+      "type": "string",
+      "required": true,
+      "max_length": 120,
+      "index": "unique"
+    },
+    {
+      "id": "fld_kh3vdjp2mo",
+      "name": "parent",
+      "label": "%parent%",
+      "type": "link",
+      "target": "hd_kb_category",
+      "index": "plain"
+    },
+    {
+      "id": "fld_lap737b5y6",
+      "name": "description",
+      "label": "%description%",
+      "type": "text"
+    },
+    {
+      "id": "fld_y46e5jyaii",
+      "name": "icon",
+      "label": "%icon%",
+      "type": "string",
+      "max_length": 40
+    },
+    {
+      "id": "fld_1tbig97fys",
+      "name": "sequence",
+      "label": "%sequence%",
+      "type": "int",
+      "default": 10
+    },
+    {
+      "id": "fld_vn1x6b3wuy",
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true
+    }
+  ]
+}

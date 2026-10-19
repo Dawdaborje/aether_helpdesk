@@ -1,0 +1,442 @@
+{
+  "model_id": "mdl_ujzde8gxd6",
+  "name": "hd_ticket",
+  "label": "%hd_ticket%",
+  "plural_label": "%hd_tickets%",
+  "icon": "ticket",
+  "title_field": "reference",
+  "title_template": "{reference} {subject}",
+  "chatter": {
+    "enabled": true,
+    "messages": false,
+    "notes": true,
+    "followers": true,
+    "track_changes": true,
+    "visitors": "none"
+  },
+  "fields": [
+    {
+      "id": "fld_xg9edn581u",
+      "name": "reference",
+      "label": "%reference%",
+      "type": "string",
+      "required": true,
+      "max_length": 40,
+      "index": "unique"
+    },
+    {
+      "id": "fld_33xtplpft7",
+      "name": "subject",
+      "label": "%subject%",
+      "type": "string",
+      "required": true,
+      "max_length": 300,
+      "track": true
+    },
+    {
+      "id": "fld_5v2seh60kv",
+      "name": "description",
+      "label": "%description%",
+      "type": "text"
+    },
+    {
+      "id": "fld_j50ce9uvw5",
+      "name": "state",
+      "label": "%state%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_3efr4edt2s",
+          "value": "new",
+          "label": "%new%"
+        },
+        {
+          "id": "opt_ywb3wkh5dn",
+          "value": "open",
+          "label": "%open%"
+        },
+        {
+          "id": "opt_sipzz5fk2z",
+          "value": "pending",
+          "label": "%pending%"
+        },
+        {
+          "id": "opt_9ri19r0wyo",
+          "value": "on_hold",
+          "label": "%on_hold%"
+        },
+        {
+          "id": "opt_jfljooa5lq",
+          "value": "resolved",
+          "label": "%resolved%"
+        },
+        {
+          "id": "opt_saj08xui6d",
+          "value": "closed",
+          "label": "%closed%"
+        },
+        {
+          "id": "opt_39zzzzg4zd",
+          "value": "merged",
+          "label": "%merged%"
+        }
+      ],
+      "required": true,
+      "default": "new",
+      "index": "plain",
+      "track": true
+    },
+    {
+      "id": "fld_men2khvdga",
+      "name": "channel",
+      "label": "%channel%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_j8gxbenyjq",
+          "value": "web",
+          "label": "%web%"
+        },
+        {
+          "id": "opt_wx4hh5344t",
+          "value": "email",
+          "label": "%email%"
+        },
+        {
+          "id": "opt_fjgvq4k7bn",
+          "value": "portal",
+          "label": "%portal%"
+        },
+        {
+          "id": "opt_7xj8b7tfq7",
+          "value": "phone",
+          "label": "%phone%"
+        },
+        {
+          "id": "opt_xkwo886vom",
+          "value": "chat",
+          "label": "%chat%"
+        },
+        {
+          "id": "opt_pzom75wbbr",
+          "value": "internal",
+          "label": "%internal%"
+        },
+        {
+          "id": "opt_4qmw2wxfog",
+          "value": "api",
+          "label": "%api%"
+        }
+      ],
+      "default": "web",
+      "index": "plain"
+    },
+    {
+      "id": "fld_o4mvn4a4wf",
+      "name": "priority",
+      "label": "%priority%",
+      "type": "link",
+      "target": "helpdesk.hd_priority",
+      "target_id": "mdl_uqpczvg35c",
+      "index": "plain",
+      "track": true
+    },
+    {
+      "id": "fld_hym4l1vfz3",
+      "name": "ticket_type",
+      "label": "%ticket_type%",
+      "type": "link",
+      "target": "helpdesk.hd_ticket_type",
+      "target_id": "mdl_2wujlimcwq",
+      "index": "plain",
+      "track": true
+    },
+    {
+      "id": "fld_zfkkibj3j4",
+      "name": "team",
+      "label": "%team%",
+      "type": "link",
+      "target": "helpdesk.hd_team",
+      "target_id": "mdl_albtuhe4nn",
+      "index": "plain",
+      "track": true
+    },
+    {
+      "id": "fld_wj99ibag7i",
+      "name": "assignee",
+      "label": "%assignee%",
+      "type": "string",
+      "max_length": 128,
+      "index": "plain",
+      "track": true,
+      "help": "User id of the agent working it"
+    },
+    {
+      "id": "fld_1mnbqns6pu",
+      "name": "assigned_at",
+      "label": "%assigned_at%",
+      "type": "datetime"
+    },
+    {
+      "id": "fld_q80idw3706",
+      "name": "customer",
+      "label": "%customer%",
+      "type": "link",
+      "target": "party.party",
+      "target_id": "mdl_mr76tss5ic",
+      "index": "plain",
+      "track": true
+    },
+    {
+      "id": "fld_i8j76b2laj",
+      "name": "requester_name",
+      "label": "%requester_name%",
+      "type": "string",
+      "max_length": 200
+    },
+    {
+      "id": "fld_lj4h9du779",
+      "name": "requester_email",
+      "label": "%requester_email%",
+      "type": "string",
+      "max_length": 200,
+      "index": "plain"
+    },
+    {
+      "id": "fld_4g9dpmrcg6",
+      "name": "requester_phone",
+      "label": "%requester_phone%",
+      "type": "string",
+      "max_length": 64
+    },
+    {
+      "id": "fld_29be2u66mr",
+      "name": "requester_user",
+      "label": "%requester_user%",
+      "type": "string",
+      "max_length": 128,
+      "index": "plain",
+      "help": "Login of the person who asked, so they can follow it"
+    },
+    {
+      "id": "fld_26846p7q9m",
+      "name": "company",
+      "label": "%company%",
+      "type": "link",
+      "target": "company.company",
+      "target_id": "mdl_d7q6tyyshp",
+      "index": "plain"
+    },
+    {
+      "id": "fld_2i0hz2uep1",
+      "name": "parent",
+      "label": "%parent%",
+      "type": "link",
+      "target": "hd_ticket",
+      "index": "plain",
+      "help": "Set on a sub-ticket"
+    },
+    {
+      "id": "fld_enthjxjqi3",
+      "name": "merged_into",
+      "label": "%merged_into%",
+      "type": "link",
+      "target": "hd_ticket"
+    },
+    {
+      "id": "fld_ogz5kok16z",
+      "name": "split_from",
+      "label": "%split_from%",
+      "type": "link",
+      "target": "hd_ticket"
+    },
+    {
+      "id": "fld_v0mwufxbv9",
+      "name": "source_model",
+      "label": "%source_model%",
+      "type": "string",
+      "max_length": 100,
+      "help": "Another plugin's model this ticket is about"
+    },
+    {
+      "id": "fld_32byv7s6eh",
+      "name": "source_id",
+      "label": "%source_id%",
+      "type": "string",
+      "max_length": 128
+    },
+    {
+      "id": "fld_ogfqrclri1",
+      "name": "due_at",
+      "label": "%due_at%",
+      "type": "datetime",
+      "index": "plain"
+    },
+    {
+      "id": "fld_qzj865ufrd",
+      "name": "opened_at",
+      "label": "%opened_at%",
+      "type": "datetime",
+      "index": "plain"
+    },
+    {
+      "id": "fld_l1erbfqfoe",
+      "name": "first_response_at",
+      "label": "%first_response_at%",
+      "type": "datetime"
+    },
+    {
+      "id": "fld_qh3av90ric",
+      "name": "resolved_at",
+      "label": "%resolved_at%",
+      "type": "datetime",
+      "index": "plain"
+    },
+    {
+      "id": "fld_7phkqdlmtt",
+      "name": "closed_at",
+      "label": "%closed_at%",
+      "type": "datetime"
+    },
+    {
+      "id": "fld_7ns26lrwbq",
+      "name": "last_customer_message_at",
+      "label": "%last_customer_message_at%",
+      "type": "datetime"
+    },
+    {
+      "id": "fld_cab69m64p2",
+      "name": "last_agent_message_at",
+      "label": "%last_agent_message_at%",
+      "type": "datetime"
+    },
+    {
+      "id": "fld_g158z6tnov",
+      "name": "last_activity_at",
+      "label": "%last_activity_at%",
+      "type": "datetime",
+      "index": "plain"
+    },
+    {
+      "id": "fld_mizwdiaeq1",
+      "name": "message_count",
+      "label": "%message_count%",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "id": "fld_kdfy6spsc3",
+      "name": "reopen_count",
+      "label": "%reopen_count%",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "id": "fld_lkr2aqxv9u",
+      "name": "resolution",
+      "label": "%resolution%",
+      "type": "text"
+    },
+    {
+      "id": "fld_pctnwlavyf",
+      "name": "rating",
+      "label": "%rating%",
+      "type": "int",
+      "help": "1 to 5, given by the requester"
+    },
+    {
+      "id": "fld_4r6mp6afqf",
+      "name": "rating_comment",
+      "label": "%rating_comment%",
+      "type": "text"
+    },
+    {
+      "id": "fld_jzczbttof7",
+      "name": "rated_at",
+      "label": "%rated_at%",
+      "type": "datetime"
+    },
+    {
+      "id": "fld_jyu5jsjc61",
+      "name": "thread_key",
+      "label": "%thread_key%",
+      "type": "string",
+      "max_length": 300,
+      "index": "plain",
+      "help": "Message-ID of the first email, for threading"
+    },
+    {
+      "id": "fld_6i76bofbci",
+      "name": "tags_text",
+      "label": "%tags_text%",
+      "type": "string",
+      "max_length": 500,
+      "help": "Tag names, kept for search and lists"
+    },
+    {
+      "id": "fld_xgy29db8p5",
+      "name": "spam",
+      "label": "%spam%",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "id": "fld_zymlopifqy",
+      "name": "access_key",
+      "label": "%access_key%",
+      "type": "string",
+      "max_length": 80,
+      "index": "plain",
+      "help": "Secret in the link a requester without an account uses"
+    },
+    {
+      "id": "fld_78f5m0nxyn",
+      "name": "reply_to",
+      "label": "%reply_to%",
+      "type": "string",
+      "max_length": 200,
+      "help": "Mailbox replies are sent from"
+    },
+    {
+      "id": "fld_j3lvf7f4uz",
+      "name": "intake_done",
+      "label": "%intake_done%",
+      "type": "bool",
+      "default": true,
+      "help": "False while a visitor's ticket waits for its defaults"
+    },
+    {
+      "id": "fld_cr9a1nx8f3",
+      "name": "first_response_minutes",
+      "label": "%first_response_minutes%",
+      "type": "int",
+      "help": "Minutes from opening to the first public reply"
+    },
+    {
+      "id": "fld_7m3dwink2l",
+      "name": "resolution_minutes",
+      "label": "%resolution_minutes%",
+      "type": "int",
+      "help": "Minutes from opening to the latest resolution"
+    },
+    {
+      "id": "fld_6lchbk40f1",
+      "name": "waiting_for_us",
+      "label": "%waiting_for_us%",
+      "type": "bool",
+      "default": false,
+      "index": "plain",
+      "help": "The requester spoke last"
+    }
+  ],
+  "view": {
+    "list": [
+      "reference",
+      "subject",
+      "state",
+      "priority",
+      "assignee",
+      "customer"
+    ]
+  }
+}

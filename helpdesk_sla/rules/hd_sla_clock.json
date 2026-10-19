@@ -1,0 +1,28 @@
+{
+  "access": [
+    {
+      "name": "read",
+      "roles": [
+        "helpdesk.hd_agent",
+        "helpdesk.hd_manager",
+        "helpdesk.hd_admin",
+        "via:self"
+      ],
+      "operations": [
+        "read"
+      ]
+    },
+    {
+      "name": "self",
+      "roles": [
+        "via:self"
+      ],
+      "operations": [
+        "read",
+        "create",
+        "write"
+      ]
+    }
+  ],
+  "model": "hd_sla_clock"
+}

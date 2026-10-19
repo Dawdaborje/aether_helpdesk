@@ -1,0 +1,156 @@
+{
+  "model_id": "mdl_8ppd8svy5n",
+  "name": "hd_survey",
+  "label": "%hd_survey%",
+  "plural_label": "%hd_surveys%",
+  "icon": "smile",
+  "title_field": "name",
+  "fields": [
+    {
+      "id": "fld_zfni04vgku",
+      "name": "code",
+      "label": "%code%",
+      "type": "string",
+      "required": true,
+      "max_length": 64,
+      "index": "unique"
+    },
+    {
+      "id": "fld_0e2e37wjmo",
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 200
+    },
+    {
+      "id": "fld_spnkt2ynur",
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "id": "fld_iz7ci922zx",
+      "name": "is_default",
+      "label": "%is_default%",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "id": "fld_7e22ul3sa2",
+      "name": "team",
+      "label": "%team%",
+      "type": "link",
+      "target": "helpdesk.hd_team",
+      "target_id": "mdl_albtuhe4nn",
+      "help": "Use only for tickets of this team"
+    },
+    {
+      "id": "fld_6j26zzx0bs",
+      "name": "ticket_type",
+      "label": "%ticket_type%",
+      "type": "link",
+      "target": "helpdesk.hd_ticket_type",
+      "target_id": "mdl_2wujlimcwq",
+      "help": "Use only for tickets of this type"
+    },
+    {
+      "id": "fld_mei82c39xx",
+      "name": "send_on",
+      "label": "%send_on%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_t1hzw7qx3s",
+          "value": "resolved",
+          "label": "%resolved%"
+        },
+        {
+          "id": "opt_nl8ymky9k5",
+          "value": "closed",
+          "label": "%closed%"
+        }
+      ],
+      "required": true,
+      "default": "resolved"
+    },
+    {
+      "id": "fld_xbnhn42sm0",
+      "name": "delay_minutes",
+      "label": "%delay_minutes%",
+      "type": "int",
+      "default": 0,
+      "help": "Wait this long after the ticket is solved before asking"
+    },
+    {
+      "id": "fld_32nswrzb5q",
+      "name": "expires_days",
+      "label": "%expires_days%",
+      "type": "int",
+      "default": 14
+    },
+    {
+      "id": "fld_ip3ae6alsg",
+      "name": "reminder_days",
+      "label": "%reminder_days%",
+      "type": "int",
+      "default": 0,
+      "help": "Ask once more after this many days without an answer; 0 for never"
+    },
+    {
+      "id": "fld_tw2l8wtu8p",
+      "name": "cooldown_days",
+      "label": "%cooldown_days%",
+      "type": "int",
+      "default": 7,
+      "help": "Do not ask the same person again within this many days"
+    },
+    {
+      "id": "fld_6dxkvzbulw",
+      "name": "alert_at",
+      "label": "%alert_at%",
+      "type": "int",
+      "default": 2,
+      "help": "Tell someone when a rating is this low or lower"
+    },
+    {
+      "id": "fld_3w4qykw7f3",
+      "name": "alert_user",
+      "label": "%alert_user%",
+      "type": "string",
+      "max_length": 128
+    },
+    {
+      "id": "fld_mew776xhgd",
+      "name": "subject",
+      "label": "%subject%",
+      "type": "string",
+      "max_length": 300,
+      "default": "How did we do on {{reference}}?"
+    },
+    {
+      "id": "fld_ya96xym8fg",
+      "name": "question",
+      "label": "%question%",
+      "type": "string",
+      "max_length": 300,
+      "default": "How satisfied are you with the help you received?"
+    },
+    {
+      "id": "fld_oo0bmxraty",
+      "name": "follow_up",
+      "label": "%follow_up%",
+      "type": "string",
+      "max_length": 300,
+      "default": "What could we have done better?"
+    },
+    {
+      "id": "fld_l3j6ovpcd9",
+      "name": "intro",
+      "label": "%intro%",
+      "type": "text",
+      "default": "Your request {{reference}} ({{subject}}) was marked as solved. It takes ten seconds to tell us how we did."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[workspace]
+name = "helpdesk"
+label = "Helpdesk"
+version = "0.1.0"
+description = "Tickets, SLA, canned replies, knowledge base, customer portal, email, CSAT and automations."
+long_description = """
+Helpdesk addons for Aether. Customers are party-owned; every ticket carries public replies and
+internal notes in one thread; SLA clocks run on business hours and pause while waiting on the customer.
+See README.md and each plugin's docs/design.md.
+"""
+group_label = "Helpdesk"
+group_icon = "./assets/helpdesk.svg"
+
+[workspace.plugins]
+helpdesk = { path = "./helpdesk" }
+helpdesk_ticket = { path = "./helpdesk_ticket" }
+helpdesk_sla = { path = "./helpdesk_sla" }
+helpdesk_canned = { path = "./helpdesk_canned" }
+helpdesk_kb = { path = "./helpdesk_kb" }
+helpdesk_portal = { path = "./helpdesk_portal" }
+helpdesk_email = { path = "./helpdesk_email" }
+helpdesk_csat = { path = "./helpdesk_csat" }
+helpdesk_automation = { path = "./helpdesk_automation" }

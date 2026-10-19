@@ -1,0 +1,187 @@
+{
+  "model_id": "mdl_nw5d2dhnaw",
+  "name": "hd_sla_clock",
+  "label": "%hd_sla_clock%",
+  "plural_label": "%hd_sla_clocks%",
+  "icon": "alarm-clock",
+  "title_field": "ticket_reference",
+  "fields": [
+    {
+      "id": "fld_rihjqeen5c",
+      "name": "ticket",
+      "label": "%ticket%",
+      "type": "link",
+      "target": "helpdesk_ticket.hd_ticket",
+      "target_id": "mdl_ujzde8gxd6",
+      "required": true,
+      "index": "plain"
+    },
+    {
+      "id": "fld_t92nqgdy7d",
+      "name": "ticket_reference",
+      "label": "%ticket_reference%",
+      "type": "string",
+      "max_length": 40,
+      "index": "plain"
+    },
+    {
+      "id": "fld_ccmjqh29ff",
+      "name": "policy",
+      "label": "%policy%",
+      "type": "link",
+      "target": "hd_sla_policy",
+      "index": "plain"
+    },
+    {
+      "id": "fld_eeiuysuhxd",
+      "name": "kind",
+      "label": "%kind%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_k185o4o7bd",
+          "value": "response",
+          "label": "%response%"
+        },
+        {
+          "id": "opt_w7pojd3jh8",
+          "value": "resolution",
+          "label": "%resolution%"
+        }
+      ],
+      "required": true,
+      "index": "plain"
+    },
+    {
+      "id": "fld_zxfq4v7s9z",
+      "name": "state",
+      "label": "%state%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_6wgy9djxaj",
+          "value": "running",
+          "label": "%running%"
+        },
+        {
+          "id": "opt_ph5imwmvbq",
+          "value": "paused",
+          "label": "%paused%"
+        },
+        {
+          "id": "opt_rzys7xnumf",
+          "value": "done",
+          "label": "%done%"
+        },
+        {
+          "id": "opt_1uq8jp93ec",
+          "value": "cancelled",
+          "label": "%cancelled%"
+        }
+      ],
+      "required": true,
+      "default": "running",
+      "index": "plain"
+    },
+    {
+      "id": "fld_7tw6vqqw61",
+      "name": "cycle",
+      "label": "%cycle%",
+      "type": "int",
+      "default": 1,
+      "help": "Counts restarts after a reopen"
+    },
+    {
+      "id": "fld_an2ue7tuxz",
+      "name": "target_minutes",
+      "label": "%target_minutes%",
+      "type": "int",
+      "required": true
+    },
+    {
+      "id": "fld_azcaftn014",
+      "name": "elapsed_minutes",
+      "label": "%elapsed_minutes%",
+      "type": "int",
+      "default": 0,
+      "help": "Business minutes used before the current stretch"
+    },
+    {
+      "id": "fld_1ulgdofmyf",
+      "name": "segment_start",
+      "label": "%segment_start%",
+      "type": "datetime",
+      "help": "When the clock last started running"
+    },
+    {
+      "id": "fld_175r8kg8p1",
+      "name": "started_at",
+      "label": "%started_at%",
+      "type": "datetime"
+    },
+    {
+      "id": "fld_w0d6rqlbug",
+      "name": "due_at",
+      "label": "%due_at%",
+      "type": "datetime",
+      "index": "plain"
+    },
+    {
+      "id": "fld_vz96jxmsb1",
+      "name": "breached",
+      "label": "%breached%",
+      "type": "bool",
+      "default": false,
+      "index": "plain"
+    },
+    {
+      "id": "fld_k2k969sm3e",
+      "name": "breached_at",
+      "label": "%breached_at%",
+      "type": "datetime"
+    },
+    {
+      "id": "fld_3c36vtlq60",
+      "name": "warned",
+      "label": "%warned%",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "id": "fld_giubm4adx5",
+      "name": "met_at",
+      "label": "%met_at%",
+      "type": "datetime"
+    },
+    {
+      "id": "fld_bts4ixgopb",
+      "name": "used_minutes",
+      "label": "%used_minutes%",
+      "type": "int",
+      "help": "Business minutes used when it stopped"
+    },
+    {
+      "id": "fld_y4prvryjt5",
+      "name": "assignee",
+      "label": "%assignee%",
+      "type": "string",
+      "max_length": 128
+    },
+    {
+      "id": "fld_uiw85mpwss",
+      "name": "team",
+      "label": "%team%",
+      "type": "link",
+      "target": "helpdesk.hd_team",
+      "target_id": "mdl_albtuhe4nn"
+    },
+    {
+      "id": "fld_q6q8drroel",
+      "name": "priority",
+      "label": "%priority%",
+      "type": "link",
+      "target": "helpdesk.hd_priority",
+      "target_id": "mdl_uqpczvg35c"
+    }
+  ]
+}

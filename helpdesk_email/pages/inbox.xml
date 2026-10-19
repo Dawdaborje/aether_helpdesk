@@ -1,0 +1,19 @@
+<page route="/helpdesk/email/inbox" title="Inbox" model="hd_email_inbox" icon="inbox" sort="71" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="list" model="hd_email_inbox" source="list_email_inbox" page_size="25" default_order="-received_at">
+    <search fields="subject,from_email,from_name,mailbox,message_id"/>
+    <filter field="state" options="Waiting=queued,Done=processed,Ignored=ignored,Blocked=blocked,Failed=failed" label="State"/>
+    <columns>
+      <column field="received_at" label="Received" fieldType="datetime"/>
+      <column field="from_email" label="From"/>
+      <column field="subject" label="Subject"/>
+      <column field="mailbox" label="To"/>
+      <column field="state" label="State" fieldType="badge"/>
+      <column field="outcome" label="What happened"/>
+      <column field="attempts" label="Tries"/>
+    </columns>
+    <actions>
+      <action name="retry" label="Try again" function="retry_email"/>
+    </actions>
+    <empty title="No mail yet" description="Messages posted to a mailbox appear here."/>
+  </view>
+</page>

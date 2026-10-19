@@ -1,0 +1,12 @@
+<page route="/helpdesk/kb/topics" title="Topics" model="hd_kb_category" icon="folder-tree" sort="62" roles="helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="list" model="hd_kb_category" source="list_kb_categories" create="/helpdesk/kb/topics/new" create_label="New topic">
+    <columns>
+      <column field="name" label="Topic"/>
+      <column field="slug" label="Address"/>
+      <column field="parent" label="Inside"/>
+      <column field="sequence" label="Order"/>
+      <column field="active" label="Active" fieldType="boolean"/>
+    </columns>
+    <empty title="No topics" description="Group articles into topics."/>
+  </view>
+</page>

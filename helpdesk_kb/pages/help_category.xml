@@ -1,0 +1,10 @@
+<page route="/help/topic/{category}" title="Topic" public="true" menu="false">
+  <view type="list" source="kb_articles" page_size="10" open="/help/{slug}">
+    <search fields="title,summary"/>
+    <columns>
+      <column field="title" label="Article"/>
+      <column field="summary" label="About"/>
+    </columns>
+    <empty title="Nothing here yet" description="No articles in this topic."/>
+  </view>
+</page>

@@ -1,0 +1,15 @@
+<page route="/helpdesk/automation/macros/new" title="New macro" menu="false" model="hd_macro" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="create_macro" submit="Create macro" success="Created" redirect="/helpdesk/automation/macros">
+    <group title="Macro" cols="2">
+      <field name="name" label="Name" required="true"/>
+      <field name="scope" label="Shared with" fieldType="selection" options="personal, team, global"/>
+      <field name="team" label="Team" fieldType="many2one" entity="teams"/>
+    </group>
+    <group title="First action (add more on the macro's page)" cols="2">
+      <field name="action" label="Action" fieldType="selection" options="set_priority, set_team, set_type, assign_agent, auto_assign, unassign, add_tag, remove_tag, change_state, add_note, send_reply, send_email, notify, escalate, set_due" required="true"/>
+      <field name="value" label="Value / message" fieldType="text"/>
+      <field name="target" label="Who or what"/>
+      <field name="subject" label="Subject or title"/>
+    </group>
+  </view>
+</page>

@@ -1,0 +1,86 @@
+{
+  "model_id": "mdl_wr10age6wf",
+  "name": "hd_mailbox",
+  "label": "%hd_mailbox%",
+  "plural_label": "%hd_mailboxs%",
+  "icon": "mailbox",
+  "title_field": "address",
+  "fields": [
+    {
+      "id": "fld_drf0rgcy89",
+      "name": "address",
+      "label": "%address%",
+      "type": "string",
+      "required": true,
+      "max_length": 200,
+      "index": "unique",
+      "help": "The address customers write to"
+    },
+    {
+      "id": "fld_vvdkiv9vpk",
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 200
+    },
+    {
+      "id": "fld_a1fyeau2gc",
+      "name": "team",
+      "label": "%team%",
+      "type": "link",
+      "target": "helpdesk.hd_team",
+      "target_id": "mdl_albtuhe4nn"
+    },
+    {
+      "id": "fld_fjibs14q4c",
+      "name": "ticket_type",
+      "label": "%ticket_type%",
+      "type": "link",
+      "target": "helpdesk.hd_ticket_type",
+      "target_id": "mdl_2wujlimcwq"
+    },
+    {
+      "id": "fld_tv74n7uaz6",
+      "name": "priority",
+      "label": "%priority%",
+      "type": "link",
+      "target": "helpdesk.hd_priority",
+      "target_id": "mdl_uqpczvg35c"
+    },
+    {
+      "id": "fld_18570x6clf",
+      "name": "secret",
+      "label": "%secret%",
+      "type": "string",
+      "max_length": 80,
+      "help": "Shared with whatever forwards the mail; every message must carry it"
+    },
+    {
+      "id": "fld_5qkvv9ze3y",
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "id": "fld_vbmfxawoz8",
+      "name": "received_count",
+      "label": "%received_count%",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "id": "fld_6ds5o84lj8",
+      "name": "last_received_at",
+      "label": "%last_received_at%",
+      "type": "datetime"
+    },
+    {
+      "id": "fld_2y3cai3mbq",
+      "name": "notes",
+      "label": "%notes%",
+      "type": "text"
+    }
+  ]
+}

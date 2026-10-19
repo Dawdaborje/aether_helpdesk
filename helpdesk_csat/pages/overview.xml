@@ -1,0 +1,13 @@
+<page route="/helpdesk/csat" title="Satisfaction" icon="smile" sort="80" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="dashboard" source="csat_overview" cols="4">
+    <stat label="Surveys sent" field="sent"/>
+    <stat label="Answered" field="answered"/>
+    <stat label="Answer rate %" field="response_rate_percent"/>
+    <stat label="Satisfied % (4 and 5)" field="satisfied_percent"/>
+    <stat label="Average rating" field="average"/>
+    <chart title="Ratings" type="bar" field="distribution" category="rating" value="answers"/>
+    <chart title="Answers per day" type="line" field="trend" category="day" value="answers"/>
+    <chart title="Average by agent" type="bar" field="by_agent" category="key" value="average"/>
+    <chart title="Average by team" type="bar" field="by_team" category="key" value="average"/>
+  </view>
+</page>

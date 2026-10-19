@@ -1,0 +1,7 @@
+<page route="/helpdesk/automation/rules/{id}/test" title="Try a rule" menu="false" model="hd_rule" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="test_rule_on_ticket" submit="Try it" success="Done">
+    <group title="Try this rule on a ticket (nothing is changed)" cols="1">
+      <field name="ticket" label="Ticket" fieldType="many2one" source="ticket_choices" optionLabel="reference" entity="tickets" required="true"/>
+    </group>
+  </view>
+</page>

@@ -1,0 +1,12 @@
+<page route="/helpdesk/email/mailboxes/new" title="New mailbox" menu="false" model="hd_mailbox" roles="helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="create_mailbox" submit="Create mailbox" success="Created" redirect="/helpdesk/email/mailboxes">
+    <group title="Mailbox" cols="2">
+      <field name="address" label="Address" required="true"/>
+      <field name="name" label="Name" required="true"/>
+      <field name="team" label="Send to team" fieldType="many2one" entity="teams"/>
+      <field name="ticket_type" label="Kind of ticket" fieldType="many2one" entity="types"/>
+      <field name="priority" label="Priority" fieldType="many2one" entity="priorities"/>
+      <field name="notes" label="Notes" fieldType="text" colspan="2"/>
+    </group>
+  </view>
+</page>

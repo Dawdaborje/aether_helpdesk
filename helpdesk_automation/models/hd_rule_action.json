@@ -1,0 +1,53 @@
+{
+  "model_id": "mdl_c95v5op5il",
+  "name": "hd_rule_action",
+  "label": "%hd_rule_action%",
+  "plural_label": "%hd_rule_actions%",
+  "icon": "zap",
+  "title_field": "action",
+  "fields": [
+    {
+      "id": "fld_hwvmbx7l8k",
+      "name": "rule",
+      "label": "%rule%",
+      "type": "link",
+      "target": "hd_rule",
+      "required": true,
+      "index": "plain"
+    },
+    {
+      "id": "fld_on16n579bx",
+      "name": "position",
+      "label": "%position%",
+      "type": "int"
+    },
+    {
+      "id": "fld_on8ju6yzc0",
+      "name": "action",
+      "label": "%action%",
+      "type": "string",
+      "required": true,
+      "max_length": 40
+    },
+    {
+      "id": "fld_pfjldt2jlg",
+      "name": "value",
+      "label": "%value%",
+      "type": "text"
+    },
+    {
+      "id": "fld_9jhccsdq9o",
+      "name": "target",
+      "label": "%target%",
+      "type": "string",
+      "max_length": 200
+    },
+    {
+      "id": "fld_idf9u7gbtx",
+      "name": "subject",
+      "label": "%subject%",
+      "type": "string",
+      "max_length": 300
+    }
+  ]
+}

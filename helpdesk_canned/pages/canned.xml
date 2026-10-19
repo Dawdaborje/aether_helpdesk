@@ -1,0 +1,14 @@
+<page route="/helpdesk/canned" title="Canned replies" model="hd_canned_reply" icon="message-square-quote" sort="50" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="list" model="hd_canned_reply" source="list_canned_replies" open="/helpdesk/canned/{id}" create="/helpdesk/canned/new" create_label="New reply">
+    <search fields="title,body,shortcut,category"/>
+    <columns>
+      <column field="title" label="Title"/>
+      <column field="shortcut" label="Shortcut"/>
+      <column field="category" label="Category"/>
+      <column field="scope" label="Shared with" fieldType="badge"/>
+      <column field="then_state" label="Then" fieldType="badge"/>
+      <column field="use_count" label="Used"/>
+    </columns>
+    <empty title="No replies" description="Save the answers you give often."/>
+  </view>
+</page>

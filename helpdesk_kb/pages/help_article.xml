@@ -1,0 +1,28 @@
+<page route="/help/{slug}" title="Article" public="true" menu="false">
+  <view type="form" source="kb_article">
+    <header>
+      <button label="This helped" function="kb_mark_helpful"/>
+      <button label="This did not help" function="kb_mark_unhelpful"/>
+    </header>
+    <group title="Article" cols="2">
+      <field name="title" label="Title" readonly="true" colspan="2"/>
+      <field name="category_name" label="Topic" readonly="true"/>
+      <field name="published_at" label="Published" fieldType="datetime" readonly="true"/>
+      <field name="summary" label="Summary" readonly="true" colspan="2"/>
+      <field name="body" label="Article" fieldType="markdown" readonly="true" colspan="2"/>
+      <field name="helpful_yes" label="Found it helpful" readonly="true"/>
+      <field name="helpful_no" label="Did not help" readonly="true"/>
+    </group>
+    <notebook>
+      <page title="Related articles">
+        <view type="list" source="kb_related" open="/help/{slug}">
+          <columns>
+            <column field="title" label="Article"/>
+            <column field="summary" label="About"/>
+          </columns>
+          <empty title="Nothing related" description="No similar articles."/>
+        </view>
+      </page>
+    </notebook>
+  </view>
+</page>

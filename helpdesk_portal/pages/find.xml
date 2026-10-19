@@ -1,0 +1,8 @@
+<page route="/support/find" title="Follow a request" public="true" icon="search" sort="2">
+  <view type="form" function="portal_find" submit="Open" redirect="/support/track/{reference}/{key}">
+    <group title="Follow a request" cols="2">
+      <field name="reference" label="Reference" required="true" help="Like HD-000123, from our email."/>
+      <field name="key" label="Key" help="From the same email. Signed-in customers can leave it empty."/>
+    </group>
+  </view>
+</page>

@@ -1,0 +1,29 @@
+{
+  "access": [
+    {
+      "name": "agents",
+      "roles": [
+        "helpdesk.hd_agent",
+        "helpdesk.hd_manager",
+        "helpdesk.hd_admin",
+        "via:self"
+      ],
+      "operations": [
+        "read",
+        "create",
+        "write"
+      ]
+    },
+    {
+      "name": "requester",
+      "operations": [
+        "read"
+      ],
+      "when": {
+        "requester_user": "$user",
+        "kind": "reply"
+      }
+    }
+  ],
+  "model": "hd_message"
+}

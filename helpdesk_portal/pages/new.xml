@@ -1,0 +1,14 @@
+<page route="/support/new" title="Ask for help" public="true" menu="false">
+  <view type="form" function="portal_submit" submit="Send" success="We have your request" redirect="/support/track/{reference}/{key}">
+    <group title="How can we help?" cols="2">
+      <field name="subject" label="Subject" required="true" colspan="2"/>
+      <field name="ticket_type" label="Kind of request" fieldType="many2one" source="portal_ticket_types" optionLabel="name" entity="kinds"/>
+      <field name="description" label="Tell us more" fieldType="text" colspan="2"/>
+    </group>
+    <group title="How to reach you" cols="2">
+      <field name="name" label="Your name"/>
+      <field name="email" label="Email" help="We reply here. Signed-in customers can leave it empty."/>
+      <field name="phone" label="Phone"/>
+    </group>
+  </view>
+</page>

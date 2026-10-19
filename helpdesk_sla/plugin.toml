@@ -1,0 +1,99 @@
+[plugin]
+name = "helpdesk_sla"
+icon_path = "assets/logo.svg"
+label = "Service levels"
+version = "0.1.0"
+description = "Business-hours SLA policies and clocks that pause while a ticket waits, warn before they run out and record misses."
+long_description = """
+A policy says how fast a ticket must get its first reply and its resolution, by priority, for the tickets it matches
+(priority, type, team, customer, channel; the first matching policy by rank wins). Clocks count business minutes in
+the policy's working hours, minus days off, and stop while the ticket waits on the customer or on someone else. They
+warn the owner before they run out, record when they did, restart when a ticket is reopened, and set the ticket's due
+date. Reports show compliance by policy. Written in Rust. See docs/design.md.
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["helpdesk_ticket", "helpdesk", "party"]
+capabilities = ["db::query", "db::mutate", "events::emit", "events::subscribe", "plugins::call", "notify::send"]
+access_models = [
+  { name = "hd_hours", permissions = ["read", "write"] },
+  { name = "hd_hours_day", permissions = ["read", "write"] },
+  { name = "hd_holiday", permissions = ["read", "write"] },
+  { name = "hd_sla_policy", permissions = ["read", "write"] },
+  { name = "hd_sla_target", permissions = ["read", "write"] },
+  { name = "hd_sla_clock", permissions = ["read", "write"] },
+]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[[events]]
+name = "ticket_sla_warning"
+
+[[events]]
+name = "ticket_sla_breached"
+
+[[events]]
+name = "helpdesk_ticket.ticket_created"
+direction = "listen"
+handler = "on_ticket_created"
+
+[[events]]
+name = "helpdesk_ticket.ticket_updated"
+direction = "listen"
+handler = "on_ticket_updated"
+
+[[events]]
+name = "helpdesk_ticket.ticket_assigned"
+direction = "listen"
+handler = "on_ticket_assigned"
+
+[[events]]
+name = "helpdesk_ticket.ticket_status_changed"
+direction = "listen"
+handler = "on_status_changed"
+
+[[events]]
+name = "helpdesk_ticket.ticket_replied"
+direction = "listen"
+handler = "on_ticket_replied"
+
+[[events]]
+name = "helpdesk_ticket.ticket_resolved"
+direction = "listen"
+handler = "on_ticket_resolved"
+
+[[events]]
+name = "helpdesk_ticket.ticket_reopened"
+direction = "listen"
+handler = "on_ticket_reopened"
+
+[[events]]
+name = "helpdesk_ticket.ticket_merged"
+direction = "listen"
+handler = "on_ticket_merged"
+
+[[schedule]]
+name = "sla-sweep"
+title = "Service level check"
+description = "Warns about clocks nearly out of time and records the ones that ran out."
+function = "sla_sweep"
+cron = "*/5 * * * *"
+
+[[command]]
+name = "seed"
+function = "seed_sla"
+help = "Create the office hours, the round-the-clock hours and a standard policy (idempotent)"
+on_install = true
+on_upgrade = true
+
+[app]
+label = "Service levels"
+icon = "timer"
+route = "/helpdesk/sla"
+description = "Response and resolution targets, business hours and compliance"
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "helpdesk"

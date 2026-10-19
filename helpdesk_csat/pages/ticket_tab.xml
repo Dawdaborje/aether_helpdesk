@@ -1,0 +1,12 @@
+<page extends="/helpdesk/tickets/{id}" title="Satisfaction" params="ticket={id}" sort="35" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="list" source="ticket_survey">
+    <columns>
+      <column field="sent_at" label="Asked" fieldType="datetime"/>
+      <column field="state" label="State" fieldType="badge"/>
+      <column field="rating" label="Rating"/>
+      <column field="comment" label="Comment"/>
+      <column field="answered_at" label="Answered" fieldType="datetime"/>
+    </columns>
+    <empty title="Not asked" description="No survey has gone out for this ticket."/>
+  </view>
+</page>

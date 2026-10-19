@@ -1,0 +1,12 @@
+<page route="/support/my" roles="member" title="My requests" icon="inbox" sort="3">
+  <view type="list" source="portal_my" page_size="10" open="/support/track/{reference}/-" create="/support/new" create_label="Ask for help">
+    <search fields="reference,subject"/>
+    <columns>
+      <column field="reference" label="Reference"/>
+      <column field="subject" label="Subject"/>
+      <column field="state" label="Status" fieldType="badge"/>
+      <column field="last_activity_at" label="Last activity" fieldType="datetime"/>
+    </columns>
+    <empty title="No requests" description="Requests you make while signed in are listed here."/>
+  </view>
+</page>

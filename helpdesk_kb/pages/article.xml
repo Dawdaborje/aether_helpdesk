@@ -1,0 +1,42 @@
+<page route="/helpdesk/kb/articles/{id}" title="Article" menu="false" model="hd_kb_article" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" source="get_kb_article" function="update_article" submit="Save">
+    <header>
+      <button label="Send for review" function="submit_article"/>
+      <button label="Publish" function="publish_article" confirm="Publish this article?" roles="helpdesk.hd_manager,helpdesk.hd_admin"/>
+      <button label="Unpublish" function="unpublish_article" confirm="Take it down?" roles="helpdesk.hd_manager,helpdesk.hd_admin"/>
+      <button label="Archive" function="archive_article" confirm="Archive this article?" roles="helpdesk.hd_manager,helpdesk.hd_admin"/>
+    </header>
+    <statusbar field="state" options="draft, review, published, archived"/>
+    <group title="Article" cols="2">
+      <field name="title" label="Title" colspan="2"/>
+      <field name="slug" label="Address" readonly="true"/>
+      <field name="version" label="Version" readonly="true"/>
+      <field name="category" label="Topic" fieldType="many2one" entity="topics"/>
+      <field name="visibility" label="For" fieldType="selection" options="public, customers, agents"/>
+      <field name="summary" label="Summary" fieldType="text" colspan="2"/>
+      <field name="body" label="Text (Markdown)" fieldType="text" colspan="2"/>
+      <field name="tags_text" label="Tags"/>
+      <field name="ticket_type" label="Suggest for tickets of type" fieldType="many2one" entity="types"/>
+      <field name="note" label="What changed" help="Kept with the old version."/>
+      <field name="views" label="Views" readonly="true"/>
+      <field name="helpful_yes" label="Helpful" readonly="true"/>
+      <field name="helpful_no" label="Not helpful" readonly="true"/>
+    </group>
+    <notebook>
+      <page title="Earlier versions">
+        <view type="list" source="list_article_revisions">
+          <columns>
+            <column field="version" label="Version"/>
+            <column field="title" label="Title"/>
+            <column field="saved_at" label="Saved" fieldType="datetime"/>
+            <column field="note" label="Note"/>
+          </columns>
+          <actions>
+            <action name="restore" label="Restore" function="restore_article_revision" confirm="Bring this version back?"/>
+          </actions>
+          <empty title="No earlier versions" description="Versions are kept when the text changes."/>
+        </view>
+      </page>
+    </notebook>
+  </view>
+</page>

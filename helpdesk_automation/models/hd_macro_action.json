@@ -1,0 +1,53 @@
+{
+  "model_id": "mdl_fmbx4kpf75",
+  "name": "hd_macro_action",
+  "label": "%hd_macro_action%",
+  "plural_label": "%hd_macro_actions%",
+  "icon": "zap",
+  "title_field": "action",
+  "fields": [
+    {
+      "id": "fld_sy9bbzq50e",
+      "name": "macro",
+      "label": "%macro%",
+      "type": "link",
+      "target": "hd_macro",
+      "required": true,
+      "index": "plain"
+    },
+    {
+      "id": "fld_seb9r5jr0b",
+      "name": "position",
+      "label": "%position%",
+      "type": "int"
+    },
+    {
+      "id": "fld_nhlc7sbmxt",
+      "name": "action",
+      "label": "%action%",
+      "type": "string",
+      "required": true,
+      "max_length": 40
+    },
+    {
+      "id": "fld_nfm2e61pmg",
+      "name": "value",
+      "label": "%value%",
+      "type": "text"
+    },
+    {
+      "id": "fld_gyhmybuk1f",
+      "name": "target",
+      "label": "%target%",
+      "type": "string",
+      "max_length": 200
+    },
+    {
+      "id": "fld_wtcp4cyqyd",
+      "name": "subject",
+      "label": "%subject%",
+      "type": "string",
+      "max_length": 300
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+<page route="/helpdesk/automation/rules/{id}/condition" title="Add a condition" menu="false" model="hd_rule_condition" roles="helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="add_rule_condition" submit="Add" success="Added" redirect="/helpdesk/automation/rules/{id}">
+    <group title="Condition" cols="3">
+      <field name="field" label="Look at" fieldType="selection" options="state, priority, ticket_type, team, assignee, channel, customer, requester_email, requester_domain, subject, description, tags, unassigned, waiting_for_us, reopen_count, message_count, rating, hours_open, hours_since_update, hours_since_customer_message, hours_since_agent_message, hours_to_due" required="true"/>
+      <field name="op" label="Compare" fieldType="selection" options="eq, ne, contains, not_contains, in, gt, lt, gte, lte, is_set, is_empty" required="true"/>
+      <field name="value" label="With" help="Several values for 'in' separated by commas. Hours and counts are numbers."/>
+    </group>
+  </view>
+</page>

@@ -1,0 +1,18 @@
+<page route="/helpdesk/tickets/unassigned" title="Unassigned" model="hd_ticket" icon="inbox" sort="12" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="list" model="hd_ticket" source="unassigned_tickets" page_size="25" open="/helpdesk/tickets/{id}">
+    <search fields="reference,subject,requester_name,requester_email,tags_text"/>
+    <columns>
+      <column field="reference" label="Reference"/>
+      <column field="subject" label="Subject"/>
+      <column field="customer" label="Customer"/>
+      <column field="priority" label="Priority"/>
+      <column field="team" label="Team"/>
+      <column field="state" label="State" fieldType="badge"/>
+      <column field="opened_at" label="Opened" fieldType="datetime"/>
+    </columns>
+    <actions>
+      <action name="mine" label="Assign to me" function="assign_ticket_to_me"/>
+    </actions>
+    <empty title="Nothing waiting for an owner" description="Open tickets nobody has taken appear here."/>
+  </view>
+</page>

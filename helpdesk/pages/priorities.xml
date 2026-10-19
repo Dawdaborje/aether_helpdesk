@@ -1,0 +1,12 @@
+<page route="/helpdesk/priorities" title="Priorities" model="hd_priority" menu="false" icon="flag" sort="60">
+  <view type="list" model="hd_priority" source="search_priorities" create="/helpdesk/priorities/new" create_label="New">
+    <search/>
+    <columns>
+      <column field="code" label="Code"/>
+      <column field="name" label="Name"/>
+      <column field="level" label="Level"/>
+      <column field="active" label="Active" fieldType="boolean"/>
+    </columns>
+    <empty title="Nothing here yet" description="Use New to add one."/>
+  </view>
+</page>

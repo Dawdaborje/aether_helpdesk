@@ -1,0 +1,12 @@
+<page route="/helpdesk/ticket-types" title="Ticket types" model="hd_ticket_type" menu="false" icon="tag" sort="60">
+  <view type="list" model="hd_ticket_type" source="search_ticket_types" create="/helpdesk/ticket-types/new" create_label="New">
+    <search/>
+    <columns>
+      <column field="code" label="Code"/>
+      <column field="name" label="Name"/>
+      <column field="default_team" label="Default team"/>
+      <column field="active" label="Active" fieldType="boolean"/>
+    </columns>
+    <empty title="Nothing here yet" description="Use New to add one."/>
+  </view>
+</page>

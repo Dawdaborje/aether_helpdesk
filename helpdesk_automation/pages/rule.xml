@@ -1,0 +1,63 @@
+<page route="/helpdesk/automation/rules/{id}" title="Rule" menu="false" model="hd_rule" roles="helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" source="get_rule" function="update_rule" submit="Save">
+    <header>
+      <button label="Try on a ticket" href="/helpdesk/automation/rules/{id}/test"/>
+    </header>
+    <group title="Rule" cols="2">
+      <field name="name" label="Name"/>
+      <field name="trigger" label="When" readonly="true"/>
+      <field name="active" label="Active" fieldType="boolean"/>
+      <field name="rank" label="Order" fieldType="integer"/>
+      <field name="match_mode" label="Conditions" fieldType="selection" options="all, any"/>
+      <field name="stop_after" label="Stop other rules after this one" fieldType="boolean"/>
+      <field name="once_per_ticket" label="Once per ticket" fieldType="boolean"/>
+      <field name="repeat_hours" label="Again after (hours)" fieldType="integer"/>
+      <field name="description" label="Notes" fieldType="text" colspan="2"/>
+    </group>
+    <notebook>
+      <page title="Only if">
+        <view type="list" source="list_rule_conditions">
+          <columns>
+            <column field="field" label="Look at"/>
+            <column field="op" label="Compare" fieldType="badge"/>
+            <column field="value" label="With"/>
+          </columns>
+          <actions>
+            <action name="remove" label="Remove" function="remove_rule_condition" confirm="Remove this condition?" danger="true"/>
+          </actions>
+          <empty title="Always" description="With no conditions the rule fires every time."/>
+        </view>
+        <buttonbox>
+          <button label="Add a condition" href="/helpdesk/automation/rules/{id}/condition" variant="outline"/>
+        </buttonbox>
+      </page>
+      <page title="Then do">
+        <view type="list" source="list_rule_actions">
+          <columns>
+            <column field="action" label="Action" fieldType="badge"/>
+            <column field="value" label="Value / message"/>
+            <column field="target" label="Who or what"/>
+          </columns>
+          <actions>
+            <action name="remove" label="Remove" function="remove_rule_action" confirm="Remove this action?" danger="true"/>
+          </actions>
+          <empty title="Does nothing" description="Add an action."/>
+        </view>
+        <buttonbox>
+          <button label="Add an action" href="/helpdesk/automation/rules/{id}/action" variant="outline"/>
+        </buttonbox>
+      </page>
+      <page title="Runs">
+        <view type="list" source="list_rule_runs">
+          <columns>
+            <column field="at" label="When" fieldType="datetime"/>
+            <column field="ticket_reference" label="Ticket"/>
+            <column field="ok" label="Worked" fieldType="boolean"/>
+            <column field="summary" label="What happened"/>
+          </columns>
+          <empty title="Has not run" description="Every run is recorded here."/>
+        </view>
+      </page>
+    </notebook>
+  </view>
+</page>

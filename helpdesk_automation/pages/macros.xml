@@ -1,0 +1,10 @@
+<page route="/helpdesk/automation/macros" title="Macros" model="hd_macro" icon="mouse-pointer-click" sort="92" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="list" model="hd_macro" source="list_macros" open="/helpdesk/automation/macros/{id}" create="/helpdesk/automation/macros/new" create_label="New macro">
+    <columns>
+      <column field="name" label="Macro"/>
+      <column field="scope" label="Shared with" fieldType="badge"/>
+      <column field="use_count" label="Used"/>
+    </columns>
+    <empty title="No macros" description="A macro is a list of actions you apply to a ticket with one click."/>
+  </view>
+</page>

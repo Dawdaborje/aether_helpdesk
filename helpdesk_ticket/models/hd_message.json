@@ -1,0 +1,179 @@
+{
+  "model_id": "mdl_47p9pb0tdb",
+  "name": "hd_message",
+  "label": "%hd_message%",
+  "plural_label": "%hd_messages%",
+  "icon": "message-square",
+  "title_field": "subject",
+  "fields": [
+    {
+      "id": "fld_qa3e68f7e4",
+      "name": "ticket",
+      "label": "%ticket%",
+      "type": "link",
+      "target": "hd_ticket",
+      "required": true,
+      "index": "plain"
+    },
+    {
+      "id": "fld_qeqpno35ye",
+      "name": "kind",
+      "label": "%kind%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_4scmejvqti",
+          "value": "reply",
+          "label": "%reply%"
+        },
+        {
+          "id": "opt_a4d5rgn5s7",
+          "value": "note",
+          "label": "%note%"
+        },
+        {
+          "id": "opt_s333h9mtf4",
+          "value": "system",
+          "label": "%system%"
+        }
+      ],
+      "required": true,
+      "default": "reply",
+      "index": "plain"
+    },
+    {
+      "id": "fld_bs3e62rynn",
+      "name": "direction",
+      "label": "%direction%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_efj7qxi6rh",
+          "value": "inbound",
+          "label": "%inbound%"
+        },
+        {
+          "id": "opt_xo55zbka52",
+          "value": "outbound",
+          "label": "%outbound%"
+        },
+        {
+          "id": "opt_ztj0wyuhva",
+          "value": "internal",
+          "label": "%internal%"
+        }
+      ],
+      "default": "internal"
+    },
+    {
+      "id": "fld_uvzhmasqxe",
+      "name": "author_user",
+      "label": "%author_user%",
+      "type": "string",
+      "max_length": 128
+    },
+    {
+      "id": "fld_zyex1rdrgd",
+      "name": "author_name",
+      "label": "%author_name%",
+      "type": "string",
+      "max_length": 200
+    },
+    {
+      "id": "fld_sjpr16umx1",
+      "name": "author_email",
+      "label": "%author_email%",
+      "type": "string",
+      "max_length": 200
+    },
+    {
+      "id": "fld_bz99nfd02i",
+      "name": "requester_user",
+      "label": "%requester_user%",
+      "type": "string",
+      "max_length": 128,
+      "index": "plain"
+    },
+    {
+      "id": "fld_s5d9ik40vs",
+      "name": "subject",
+      "label": "%subject%",
+      "type": "string",
+      "max_length": 300
+    },
+    {
+      "id": "fld_tqqzpt49zh",
+      "name": "body",
+      "label": "%body%",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "fld_kken659o2v",
+      "name": "recipients",
+      "label": "%recipients%",
+      "type": "string",
+      "max_length": 1000
+    },
+    {
+      "id": "fld_21i9mpflv9",
+      "name": "email_message_id",
+      "label": "%email_message_id%",
+      "type": "string",
+      "max_length": 300,
+      "index": "plain"
+    },
+    {
+      "id": "fld_fupxqmb0y0",
+      "name": "in_reply_to",
+      "label": "%in_reply_to%",
+      "type": "string",
+      "max_length": 300
+    },
+    {
+      "id": "fld_7nyrvd5rxi",
+      "name": "channel",
+      "label": "%channel%",
+      "type": "string",
+      "max_length": 30
+    },
+    {
+      "id": "fld_67nfrpyz21",
+      "name": "delivery",
+      "label": "%delivery%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_tbic145aez",
+          "value": "none",
+          "label": "%none%"
+        },
+        {
+          "id": "opt_732pgojj7g",
+          "value": "queued",
+          "label": "%queued%"
+        },
+        {
+          "id": "opt_3f9caiocti",
+          "value": "failed",
+          "label": "%failed%"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "id": "fld_q71hget7my",
+      "name": "delivery_error",
+      "label": "%delivery_error%",
+      "type": "string",
+      "max_length": 500
+    },
+    {
+      "id": "fld_qoaa8t3rup",
+      "name": "posted_at",
+      "label": "%posted_at%",
+      "type": "datetime",
+      "index": "plain"
+    }
+  ]
+}

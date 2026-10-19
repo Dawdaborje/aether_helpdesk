@@ -1,0 +1,23 @@
+<page route="/helpdesk/sla/policies/new" title="New policy" menu="false" model="hd_sla_policy" roles="helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="create_sla_policy" submit="Create policy" success="Policy created" redirect="/helpdesk/sla/policies">
+    <group title="Policy" cols="2">
+      <field name="code" label="Code" required="true"/>
+      <field name="name" label="Name" required="true"/>
+      <field name="rank" label="Rank" fieldType="integer" help="Lower is tried first."/>
+      <field name="hours" label="Business hours" fieldType="many2one" source="list_business_hours" optionLabel="name" entity="hours"/>
+    </group>
+    <group title="Applies to (leave empty for any)" cols="2">
+      <field name="priority" label="Priority" fieldType="many2one" entity="priorities"/>
+      <field name="ticket_type" label="Type" fieldType="many2one" entity="types"/>
+      <field name="team" label="Team" fieldType="many2one" entity="teams"/>
+      <field name="customer" label="Customer" fieldType="many2one" entity="customers"/>
+      <field name="channel" label="Channel" fieldType="selection" options="web, email, portal, phone, chat, internal, api"/>
+    </group>
+    <group title="Clock" cols="2">
+      <field name="warn_percent" label="Warn at %" fieldType="integer"/>
+      <field name="escalate_to" label="Also tell" help="User to notify when a clock is missed."/>
+      <field name="pause_when_pending" label="Pause while waiting for the customer" fieldType="boolean"/>
+      <field name="pause_when_on_hold" label="Pause while on hold" fieldType="boolean"/>
+    </group>
+  </view>
+</page>

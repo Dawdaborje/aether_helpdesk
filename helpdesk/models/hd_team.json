@@ -1,0 +1,85 @@
+{
+  "model_id": "mdl_albtuhe4nn",
+  "name": "hd_team",
+  "label": "%team%",
+  "plural_label": "%teams%",
+  "icon": "users",
+  "title_field": "name",
+  "fields": [
+    {
+      "id": "fld_bf7s42me3b",
+      "name": "code",
+      "label": "%code%",
+      "type": "string",
+      "required": true,
+      "max_length": 64,
+      "index": "unique"
+    },
+    {
+      "id": "fld_mwswenaqz3",
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 200
+    },
+    {
+      "id": "fld_moffjlw4u3",
+      "name": "company",
+      "label": "%company%",
+      "type": "link",
+      "required": true,
+      "index": "plain",
+      "target": "company.company",
+      "target_id": "mdl_d7q6tyyshp"
+    },
+    {
+      "id": "fld_uow65t6auf",
+      "name": "leader",
+      "label": "%leader%",
+      "type": "string",
+      "max_length": 128,
+      "help": "User id of the team leader"
+    },
+    {
+      "id": "fld_gqwn6mcj33",
+      "name": "assignment",
+      "label": "%assignment%",
+      "type": "select",
+      "default": "manual",
+      "options": [
+        {
+          "id": "opt_d3uhnuy7l6",
+          "value": "manual",
+          "label": "%manual%"
+        },
+        {
+          "id": "opt_asrav2qdv5",
+          "value": "round_robin",
+          "label": "%round_robin%"
+        },
+        {
+          "id": "opt_xkxq3qmrpo",
+          "value": "load_balanced",
+          "label": "%load_balanced%"
+        }
+      ]
+    },
+    {
+      "id": "fld_fablp6bgxt",
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true
+    }
+  ],
+  "view": {
+    "list": [
+      "code",
+      "name",
+      "company",
+      "assignment",
+      "active"
+    ]
+  }
+}

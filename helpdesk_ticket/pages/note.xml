@@ -1,0 +1,7 @@
+<page route="/helpdesk/tickets/{id}/note" title="Internal note" menu="false" model="hd_message" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="add_ticket_note" submit="Add note" success="Note added" redirect="/helpdesk/tickets/{id}">
+    <group title="Internal note" cols="1">
+      <field name="body" label="Note" fieldType="text" required="true" help="Only agents see this."/>
+    </group>
+  </view>
+</page>

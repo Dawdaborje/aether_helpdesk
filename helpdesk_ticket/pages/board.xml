@@ -1,0 +1,14 @@
+<page route="/helpdesk/board" title="Board" model="hd_ticket" icon="kanban" sort="13" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="kanban" model="hd_ticket" source="list_tickets" group_by="state" open="/helpdesk/tickets/{id}" move="move_ticket">
+    <card>
+      <field name="subject"/>
+      <field name="reference"/>
+      <field name="customer"/>
+      <footer>
+        <field name="priority"/>
+        <field name="assignee"/>
+      </footer>
+    </card>
+    <empty title="No tickets" description="Drag a card to another column to change its state."/>
+  </view>
+</page>

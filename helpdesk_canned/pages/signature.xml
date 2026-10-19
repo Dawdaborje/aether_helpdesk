@@ -1,0 +1,8 @@
+<page route="/helpdesk/signature" title="My signature" icon="pen-line" sort="51" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" source="get_my_signature" function="set_my_signature" submit="Save signature" success="Saved">
+    <group title="Signature" cols="1">
+      <field name="display_name" label="Name shown to customers" help="Fills {{agent.name}}"/>
+      <field name="body" label="Signature" fieldType="text" help="Added under replies sent from a canned reply."/>
+    </group>
+  </view>
+</page>

@@ -1,0 +1,8 @@
+<page route="/helpdesk/sla/hours/{id}/holiday" title="Add a day off" menu="false" model="hd_holiday" roles="helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="add_holiday" submit="Add" success="Added" redirect="/helpdesk/sla/hours/{id}">
+    <group title="Day off" cols="2">
+      <field name="day" label="Day" fieldType="date" required="true"/>
+      <field name="name" label="Name"/>
+    </group>
+  </view>
+</page>

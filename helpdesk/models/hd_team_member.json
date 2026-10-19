@@ -1,0 +1,50 @@
+{
+  "model_id": "mdl_6ygm6f5v6z",
+  "name": "hd_team_member",
+  "label": "%team_member%",
+  "plural_label": "%team_members%",
+  "icon": "user",
+  "title_field": "user",
+  "fields": [
+    {
+      "id": "fld_3nfdaw43ij",
+      "name": "team",
+      "label": "%team%",
+      "type": "link",
+      "required": true,
+      "index": "plain",
+      "target": "hd_team"
+    },
+    {
+      "id": "fld_lfgem3a6c7",
+      "name": "user",
+      "label": "%user%",
+      "type": "string",
+      "required": true,
+      "max_length": 128
+    },
+    {
+      "id": "fld_xaqhhs5isv",
+      "name": "capacity",
+      "label": "%capacity%",
+      "type": "int",
+      "default": 0,
+      "help": "Max open tickets for load balancing; 0 is unlimited"
+    },
+    {
+      "id": "fld_sqdgrny45d",
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true
+    }
+  ],
+  "view": {
+    "list": [
+      "team",
+      "user",
+      "capacity",
+      "active"
+    ]
+  }
+}

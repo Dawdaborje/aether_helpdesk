@@ -1,0 +1,84 @@
+[plugin]
+name = "helpdesk_automation"
+icon_path = "assets/logo.svg"
+label = "Automation"
+version = "0.1.0"
+description = "Rules that act on tickets when something happens or time passes, one-click macros, a dry run and a log of every run."
+long_description = """
+A rule watches one kind of moment (a ticket is created, a customer or an agent replies, the state or owner changes,
+it is solved or reopened, or the clock: every ten minutes for every open ticket), checks conditions on what is known
+about the ticket (state, priority, team, type, customer, tags, who spoke last, hours open, hours since the customer
+wrote, hours to the due date, and more) and then acts: set priority, team or type, assign (to a person or by the
+team's rule), tag, move the state, add a note, reply, email, notify, escalate, set a due date. Rules run in order and
+may stop the ones after them; a rule can fire once per ticket; rules that undo each other cannot loop. A macro is the
+same list of actions applied by an agent with one click. Any rule can be tried on a ticket first to see what it would
+do. Written in Rust. See docs/design.md.
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["helpdesk_ticket", "helpdesk"]
+capabilities = ["db::query", "db::mutate", "plugins::call", "events::subscribe", "communication::send", "email::send", "notify::send", "scheduler::enqueue"]
+access_models = [
+  { name = "hd_rule", permissions = ["read", "write"] },
+  { name = "hd_rule_condition", permissions = ["read", "write"] },
+  { name = "hd_rule_action", permissions = ["read", "write"] },
+  { name = "hd_rule_run", permissions = ["read", "write"] },
+  { name = "hd_macro", permissions = ["read", "write"] },
+  { name = "hd_macro_action", permissions = ["read", "write"] },
+]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[[events]]
+name = "helpdesk_ticket.ticket_created"
+direction = "listen"
+handler = "on_ticket_created"
+
+[[events]]
+name = "helpdesk_ticket.ticket_updated"
+direction = "listen"
+handler = "on_ticket_updated"
+
+[[events]]
+name = "helpdesk_ticket.ticket_assigned"
+direction = "listen"
+handler = "on_ticket_assigned"
+
+[[events]]
+name = "helpdesk_ticket.ticket_status_changed"
+direction = "listen"
+handler = "on_status_changed"
+
+[[events]]
+name = "helpdesk_ticket.ticket_replied"
+direction = "listen"
+handler = "on_ticket_replied"
+
+[[events]]
+name = "helpdesk_ticket.ticket_resolved"
+direction = "listen"
+handler = "on_ticket_resolved"
+
+[[events]]
+name = "helpdesk_ticket.ticket_reopened"
+direction = "listen"
+handler = "on_ticket_reopened"
+
+[[schedule]]
+name = "automation-sweep"
+title = "Time-based rules"
+description = "Checks every open ticket against the rules that watch the clock."
+function = "automation_sweep"
+cron = "*/10 * * * *"
+
+[app]
+label = "Automation"
+icon = "zap"
+route = "/helpdesk/automation"
+description = "Rules and macros for tickets"
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "helpdesk"

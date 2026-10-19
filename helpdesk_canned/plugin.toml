@@ -1,0 +1,43 @@
+[plugin]
+name = "helpdesk_canned"
+icon_path = "assets/logo.svg"
+label = "Canned replies"
+version = "0.1.0"
+description = "Reusable replies with merge fields, shared personally, by team or with everyone, suggested for the ticket at hand."
+long_description = """
+Agents keep the answers they write again and again. A reply is personal, shared with a team, or shared with everyone;
+it has a /shortcut, a category, a ticket type it suits and optionally a state to leave the ticket in. Merge fields such
+as {{requester.first_name|there}} are filled from the ticket, and a field with no value stops the send instead of
+reaching the customer as a blank. Replies are suggested for a ticket by the words it shares with them, and sent
+through the ticket plugin so email, first-response stamps, SLA and events work as for any reply. Each agent can keep a
+signature. Written in Rust. See docs/design.md.
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["helpdesk_ticket", "helpdesk", "party"]
+capabilities = ["db::query", "db::mutate", "plugins::call"]
+access_models = [
+  { name = "hd_canned_reply", permissions = ["read", "write"] },
+  { name = "hd_signature", permissions = ["read", "write"] },
+]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[[command]]
+name = "seed"
+function = "seed_canned"
+help = "Create the starter replies everyone can use (idempotent)"
+on_install = true
+on_upgrade = true
+
+[app]
+label = "Canned replies"
+icon = "message-square-quote"
+route = "/helpdesk/canned"
+description = "Reusable answers with merge fields"
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "helpdesk"

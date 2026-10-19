@@ -1,0 +1,96 @@
+{
+  "model_id": "mdl_zymoyntueo",
+  "name": "hd_settings",
+  "label": "%settings%",
+  "plural_label": "%settings%",
+  "icon": "settings",
+  "title_field": "company",
+  "fields": [
+    {
+      "id": "fld_otguvutrj4",
+      "name": "company",
+      "label": "%company%",
+      "type": "link",
+      "required": true,
+      "index": "unique",
+      "target": "company.company",
+      "target_id": "mdl_d7q6tyyshp"
+    },
+    {
+      "id": "fld_2khc7iwbpc",
+      "name": "default_team",
+      "label": "%default_team%",
+      "type": "link",
+      "target": "hd_team"
+    },
+    {
+      "id": "fld_ewotv3svcu",
+      "name": "default_priority",
+      "label": "%default_priority%",
+      "type": "link",
+      "target": "hd_priority"
+    },
+    {
+      "id": "fld_ukenapxoq4",
+      "name": "auto_close_days",
+      "label": "%auto_close_days%",
+      "type": "int",
+      "default": 7,
+      "help": "Close resolved tickets after this many days; 0 disables"
+    },
+    {
+      "id": "fld_uhohfg7oao",
+      "name": "csat_enabled",
+      "label": "%csat_enabled%",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "id": "fld_e4dcw6glgd",
+      "name": "send_acknowledgement",
+      "label": "%send_acknowledgement%",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "id": "fld_0ibyyurl65",
+      "name": "restrict_by_team",
+      "label": "%restrict_by_team%",
+      "type": "bool",
+      "default": false,
+      "help": "Agents see only the tickets of their teams, tickets with no team, and their own"
+    },
+    {
+      "id": "fld_b4kj4hbi6j",
+      "name": "portal_url",
+      "label": "%portal_url%",
+      "type": "string",
+      "max_length": 300,
+      "help": "The site's public address, used in links emailed to requesters"
+    },
+    {
+      "id": "fld_lvhkpo2drv",
+      "name": "reply_signature",
+      "label": "%reply_signature%",
+      "type": "text",
+      "help": "Added under every public reply"
+    },
+    {
+      "id": "fld_auk7vwzzut",
+      "name": "business_name",
+      "label": "%business_name%",
+      "type": "string",
+      "max_length": 200,
+      "help": "Name shown in outgoing mail and the portal"
+    }
+  ],
+  "view": {
+    "list": [
+      "company",
+      "default_team",
+      "default_priority",
+      "auto_close_days",
+      "csat_enabled"
+    ]
+  }
+}

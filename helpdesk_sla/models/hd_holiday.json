@@ -1,0 +1,34 @@
+{
+  "model_id": "mdl_yzn9o0dppd",
+  "name": "hd_holiday",
+  "label": "%hd_holiday%",
+  "plural_label": "%hd_holidays%",
+  "icon": "calendar-x",
+  "title_field": "name",
+  "fields": [
+    {
+      "id": "fld_4jt4aaryrs",
+      "name": "hours",
+      "label": "%hours%",
+      "type": "link",
+      "target": "hd_hours",
+      "required": true,
+      "index": "plain"
+    },
+    {
+      "id": "fld_tptzopj8ug",
+      "name": "day",
+      "label": "%day%",
+      "type": "date",
+      "required": true,
+      "index": "plain"
+    },
+    {
+      "id": "fld_mbx85t47qt",
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "max_length": 200
+    }
+  ]
+}

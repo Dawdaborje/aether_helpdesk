@@ -1,0 +1,40 @@
+<page route="/helpdesk/sla/policies/{id}" title="Policy" menu="false" model="hd_sla_policy" roles="helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" source="get_sla_policy" function="update_sla_policy" submit="Save">
+    <group title="Policy" cols="2">
+      <field name="code" label="Code" readonly="true"/>
+      <field name="name" label="Name"/>
+      <field name="rank" label="Rank" fieldType="integer"/>
+      <field name="active" label="Active" fieldType="boolean"/>
+      <field name="hours" label="Business hours" fieldType="many2one" source="list_business_hours" optionLabel="name" entity="hours"/>
+      <field name="warn_percent" label="Warn at %" fieldType="integer"/>
+      <field name="pause_when_pending" label="Pause while waiting for the customer" fieldType="boolean"/>
+      <field name="pause_when_on_hold" label="Pause while on hold" fieldType="boolean"/>
+      <field name="escalate_to" label="Also tell"/>
+    </group>
+    <group title="Applies to" cols="2">
+      <field name="priority" label="Priority" fieldType="many2one" entity="priorities"/>
+      <field name="ticket_type" label="Type" fieldType="many2one" entity="types"/>
+      <field name="team" label="Team" fieldType="many2one" entity="teams"/>
+      <field name="customer" label="Customer" fieldType="many2one" entity="customers"/>
+      <field name="channel" label="Channel" fieldType="selection" options="web, email, portal, phone, chat, internal, api"/>
+    </group>
+    <notebook>
+      <page title="Targets">
+        <view type="list" source="list_sla_targets">
+          <columns>
+            <column field="priority" label="Priority"/>
+            <column field="response_minutes" label="First reply (minutes)"/>
+            <column field="resolution_minutes" label="Resolution (minutes)"/>
+          </columns>
+          <actions>
+            <action name="remove" label="Remove" function="remove_sla_target" confirm="Remove this target?" danger="true"/>
+          </actions>
+          <empty title="No targets" description="Add a target for each priority."/>
+        </view>
+        <buttonbox>
+          <button label="Add a target" href="/helpdesk/sla/policies/{id}/target" variant="outline"/>
+        </buttonbox>
+      </page>
+    </notebook>
+  </view>
+</page>

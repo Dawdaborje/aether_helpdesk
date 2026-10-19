@@ -1,0 +1,168 @@
+{
+  "model_id": "mdl_3p5kx8bcw0",
+  "name": "hd_survey_response",
+  "label": "%hd_survey_response%",
+  "plural_label": "%hd_survey_responses%",
+  "icon": "message-circle-heart",
+  "title_field": "reference",
+  "fields": [
+    {
+      "id": "fld_xsmb63792w",
+      "name": "survey",
+      "label": "%survey%",
+      "type": "link",
+      "target": "hd_survey",
+      "index": "plain"
+    },
+    {
+      "id": "fld_j0agtimzpl",
+      "name": "ticket",
+      "label": "%ticket%",
+      "type": "link",
+      "target": "helpdesk_ticket.hd_ticket",
+      "target_id": "mdl_ujzde8gxd6",
+      "required": true,
+      "index": "plain"
+    },
+    {
+      "id": "fld_ocoeczyfuf",
+      "name": "reference",
+      "label": "%reference%",
+      "type": "string",
+      "max_length": 40,
+      "index": "plain"
+    },
+    {
+      "id": "fld_pgh506eq2p",
+      "name": "token",
+      "label": "%token%",
+      "type": "string",
+      "required": true,
+      "max_length": 80,
+      "index": "unique"
+    },
+    {
+      "id": "fld_6w6m7s8p12",
+      "name": "requester_name",
+      "label": "%requester_name%",
+      "type": "string",
+      "max_length": 200
+    },
+    {
+      "id": "fld_0o1uqst1fy",
+      "name": "requester_email",
+      "label": "%requester_email%",
+      "type": "string",
+      "max_length": 200,
+      "index": "plain"
+    },
+    {
+      "id": "fld_pjr8myh05g",
+      "name": "agent",
+      "label": "%agent%",
+      "type": "string",
+      "max_length": 128,
+      "index": "plain"
+    },
+    {
+      "id": "fld_96hqoazw14",
+      "name": "team",
+      "label": "%team%",
+      "type": "link",
+      "target": "helpdesk.hd_team",
+      "target_id": "mdl_albtuhe4nn",
+      "index": "plain"
+    },
+    {
+      "id": "fld_q1vpq7tl7a",
+      "name": "state",
+      "label": "%state%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_m87i92rb21",
+          "value": "sent",
+          "label": "%sent%"
+        },
+        {
+          "id": "opt_m7ge3n1z91",
+          "value": "answered",
+          "label": "%answered%"
+        },
+        {
+          "id": "opt_i4vhmlpb47",
+          "value": "expired",
+          "label": "%expired%"
+        },
+        {
+          "id": "opt_yhnrn73yz6",
+          "value": "skipped",
+          "label": "%skipped%"
+        }
+      ],
+      "required": true,
+      "default": "sent",
+      "index": "plain"
+    },
+    {
+      "id": "fld_pwp2gkw4et",
+      "name": "sent_at",
+      "label": "%sent_at%",
+      "type": "datetime",
+      "index": "plain"
+    },
+    {
+      "id": "fld_wbi1v7y9h6",
+      "name": "reminded_at",
+      "label": "%reminded_at%",
+      "type": "datetime"
+    },
+    {
+      "id": "fld_sw7pj785rr",
+      "name": "expires_at",
+      "label": "%expires_at%",
+      "type": "datetime"
+    },
+    {
+      "id": "fld_q5ai2xl58h",
+      "name": "send_error",
+      "label": "%send_error%",
+      "type": "string",
+      "max_length": 300
+    },
+    {
+      "id": "fld_dscmysoa8h",
+      "name": "answered_at",
+      "label": "%answered_at%",
+      "type": "datetime",
+      "index": "plain"
+    },
+    {
+      "id": "fld_rt2wb02303",
+      "name": "rating",
+      "label": "%rating%",
+      "type": "int",
+      "index": "plain"
+    },
+    {
+      "id": "fld_4832j0v0xe",
+      "name": "comment",
+      "label": "%comment%",
+      "type": "text"
+    },
+    {
+      "id": "fld_zlshq9p6o0",
+      "name": "applied",
+      "label": "%applied%",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "id": "fld_5kcro00hpx",
+      "name": "alerted",
+      "label": "%alerted%",
+      "type": "bool",
+      "default": false
+    }
+  ]
+}

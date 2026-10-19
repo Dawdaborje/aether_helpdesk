@@ -1,0 +1,8 @@
+<page route="/support/track/{reference}/{key}/rate" title="Rate our help" public="true" menu="false">
+  <view type="form" function="portal_rate" submit="Send rating" success="Thank you" redirect="/support/track/{reference}/{key}">
+    <group title="How did we do?" cols="1">
+      <field name="rating" label="Rating from 1 (poor) to 5 (excellent)" fieldType="integer" required="true"/>
+      <field name="comment" label="Anything to add?" fieldType="text"/>
+    </group>
+  </view>
+</page>

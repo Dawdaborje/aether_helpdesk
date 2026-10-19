@@ -1,0 +1,10 @@
+<page route="/help/topics" title="Topics" public="true" icon="folder" sort="3">
+  <view type="list" source="kb_categories" open="/help/topic/{slug}">
+    <columns>
+      <column field="name" label="Topic"/>
+      <column field="description" label="About"/>
+      <column field="articles" label="Articles"/>
+    </columns>
+    <empty title="No topics" description="Articles are not grouped yet."/>
+  </view>
+</page>

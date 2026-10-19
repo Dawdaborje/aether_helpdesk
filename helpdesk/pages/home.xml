@@ -1,0 +1,6 @@
+<page route="/helpdesk" title="Helpdesk" icon="headset" sort="1" menu="false">
+  <header title="Helpdesk" subtitle="Work tickets, or configure masters under Setup."/>
+  <buttonbox>
+    <button label="Setup" href="/helpdesk/setup" variant="outline"/>
+  </buttonbox>
+</page>

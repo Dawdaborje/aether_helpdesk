@@ -1,0 +1,5 @@
+<page extends="/helpdesk/tickets/{id}" title="Macro button" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <xpath expr="//header" position="inside">
+    <button label="Macro" href="/helpdesk/tickets/{id}/macro"/>
+  </xpath>
+</page>

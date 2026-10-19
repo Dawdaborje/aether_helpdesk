@@ -1,0 +1,14 @@
+<page route="/helpdesk/sla/policies" title="Policies" model="hd_sla_policy" icon="file-clock" sort="42" roles="helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="list" model="hd_sla_policy" source="list_sla_policies" open="/helpdesk/sla/policies/{id}" create="/helpdesk/sla/policies/new" create_label="New policy">
+    <columns>
+      <column field="rank" label="Rank"/>
+      <column field="code" label="Code"/>
+      <column field="name" label="Name"/>
+      <column field="hours" label="Business hours"/>
+      <column field="priority" label="Priority"/>
+      <column field="team" label="Team"/>
+      <column field="active" label="Active" fieldType="boolean"/>
+    </columns>
+    <empty title="No policies" description="A policy sets first-reply and resolution targets."/>
+  </view>
+</page>

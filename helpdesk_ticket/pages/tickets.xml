@@ -1,0 +1,28 @@
+<page route="/helpdesk/tickets" title="Tickets" model="hd_ticket" icon="ticket" sort="10" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="list" model="hd_ticket" source="list_tickets" page_size="25" default_order="-last_activity_at" open="/helpdesk/tickets/{id}" create="/helpdesk/tickets/new" create_label="New ticket">
+    <search fields="reference,subject,requester_name,requester_email,tags_text"/>
+    <filter field="state" options="New=new,Open=open,Pending=pending,On hold=on_hold,Resolved=resolved,Closed=closed" label="State"/>
+    <filter field="channel" options="web,email,portal,phone,chat,internal,api" label="Channel"/>
+    <groupby field="state" label="State"/>
+    <groupby field="priority" label="Priority"/>
+    <groupby field="team" label="Team"/>
+    <groupby field="assignee" label="Agent"/>
+    <groupby field="ticket_type" label="Type"/>
+    <columns>
+      <column field="reference" label="Reference" sortable="true"/>
+      <column field="subject" label="Subject"/>
+      <column field="customer" label="Customer"/>
+      <column field="priority" label="Priority"/>
+      <column field="state" label="State" fieldType="badge" sortable="true"/>
+      <column field="assignee" label="Agent"/>
+      <column field="due_at" label="Due" fieldType="datetime" sortable="true"/>
+      <column field="last_activity_at" label="Last activity" fieldType="datetime" sortable="true"/>
+    </columns>
+    <actions>
+      <action name="take" label="Take" function="take_ticket"/>
+      <action name="resolve" label="Resolve" function="resolve_ticket" confirm="Resolve this ticket?"/>
+      <action name="close" label="Close" function="close_ticket" confirm="Close this ticket?"/>
+    </actions>
+    <empty title="No tickets" description="Tickets raised by customers and agents appear here."/>
+  </view>
+</page>

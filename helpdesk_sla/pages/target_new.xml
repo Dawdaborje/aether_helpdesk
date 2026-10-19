@@ -1,0 +1,9 @@
+<page route="/helpdesk/sla/policies/{id}/target" title="Add a target" menu="false" model="hd_sla_target" roles="helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="add_sla_target" submit="Add" success="Target added" redirect="/helpdesk/sla/policies/{id}">
+    <group title="Target" cols="2">
+      <field name="priority" label="Priority" fieldType="many2one" entity="priorities" help="Empty applies to any priority not listed."/>
+      <field name="response_minutes" label="First reply within (business minutes)" fieldType="integer"/>
+      <field name="resolution_minutes" label="Resolved within (business minutes)" fieldType="integer"/>
+    </group>
+  </view>
+</page>

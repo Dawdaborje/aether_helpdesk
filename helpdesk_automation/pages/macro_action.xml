@@ -1,0 +1,10 @@
+<page route="/helpdesk/automation/macros/{id}/action" title="Add an action" menu="false" model="hd_macro_action" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="add_macro_action" submit="Add" success="Added" redirect="/helpdesk/automation/macros/{id}">
+    <group title="Action" cols="2">
+      <field name="action" label="Action" fieldType="selection" options="set_priority, set_team, set_type, assign_agent, auto_assign, unassign, add_tag, remove_tag, change_state, add_note, send_reply, send_email, notify, escalate, set_due" required="true"/>
+      <field name="value" label="Value / message" fieldType="text"/>
+      <field name="target" label="Who or what"/>
+      <field name="subject" label="Subject or title"/>
+    </group>
+  </view>
+</page>

@@ -1,0 +1,13 @@
+<page extends="/helpdesk/tickets/{id}" title="Articles" params="ticket={id}" sort="25" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="list" source="suggest_articles" open="/helpdesk/kb/articles/{id}">
+    <columns>
+      <column field="title" label="Article"/>
+      <column field="summary" label="About"/>
+      <column field="score" label="Fit"/>
+    </columns>
+    <actions>
+      <action name="send" label="Send to customer" function="send_suggested_article"/>
+    </actions>
+    <empty title="No suggestions" description="Published articles that fit this ticket appear here."/>
+  </view>
+</page>

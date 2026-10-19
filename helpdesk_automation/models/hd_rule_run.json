@@ -1,0 +1,61 @@
+{
+  "model_id": "mdl_3ariinc1ob",
+  "name": "hd_rule_run",
+  "label": "%hd_rule_run%",
+  "plural_label": "%hd_rule_runs%",
+  "icon": "history",
+  "title_field": "summary",
+  "fields": [
+    {
+      "id": "fld_94lv2kl14f",
+      "name": "rule",
+      "label": "%rule%",
+      "type": "link",
+      "target": "hd_rule",
+      "required": true,
+      "index": "plain"
+    },
+    {
+      "id": "fld_ehrc9ubk27",
+      "name": "ticket",
+      "label": "%ticket%",
+      "type": "link",
+      "target": "helpdesk_ticket.hd_ticket",
+      "target_id": "mdl_ujzde8gxd6",
+      "index": "plain"
+    },
+    {
+      "id": "fld_u99jle6ck0",
+      "name": "ticket_reference",
+      "label": "%ticket_reference%",
+      "type": "string",
+      "max_length": 40
+    },
+    {
+      "id": "fld_eqofqll2yy",
+      "name": "trigger",
+      "label": "%trigger%",
+      "type": "string",
+      "max_length": 40
+    },
+    {
+      "id": "fld_8hw9w3e9wd",
+      "name": "at",
+      "label": "%at%",
+      "type": "datetime",
+      "index": "plain"
+    },
+    {
+      "id": "fld_bfmivzoyr9",
+      "name": "ok",
+      "label": "%ok%",
+      "type": "bool"
+    },
+    {
+      "id": "fld_t3rpfv1tag",
+      "name": "summary",
+      "label": "%summary%",
+      "type": "text"
+    }
+  ]
+}

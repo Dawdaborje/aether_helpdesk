@@ -1,0 +1,48 @@
+[plugin]
+name = "helpdesk_kb"
+icon_path = "assets/logo.svg"
+label = "Knowledge base"
+version = "0.1.0"
+description = "Help articles with revisions and review, for the public, customers or agents, with ranked search, feedback and ticket deflection."
+long_description = """
+Articles are written in Markdown by agents, reviewed and published by managers, kept as revisions, and shown to the
+public, to signed-in customers or to agents only. Search ranks title over tags over summary over body and nudges up what
+readers found helpful. What people searched for and did not find is kept, so the gaps are visible. Agents see articles
+suggested for the ticket in front of them, send one as a reply, and write a draft from a solved ticket. The public pages
+(/help) are open to visitors; while someone writes a request, kb_suggest offers articles that may answer it. Written in
+Rust. See docs/design.md.
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["helpdesk_ticket", "helpdesk", "company"]
+capabilities = ["db::query", "db::mutate", "plugins::call"]
+access_models = [
+  { name = "hd_kb_category", permissions = ["read", "write"] },
+  { name = "hd_kb_article", permissions = ["read", "write"] },
+  { name = "hd_kb_revision", permissions = ["read", "write"] },
+  { name = "hd_kb_feedback", permissions = ["read", "write"] },
+  { name = "hd_kb_use", permissions = ["read", "write"] },
+  { name = "hd_kb_search", permissions = ["read", "write"] },
+]
+public_functions = ["kb_articles", "kb_categories", "kb_article", "kb_mark_helpful", "kb_mark_unhelpful", "kb_feedback", "kb_suggest", "kb_popular", "kb_related"]
+public_capabilities = ["db::query", "db::mutate", "plugins::call"]
+public_access_models = [
+  { name = "hd_kb_category", permissions = ["read"] },
+  { name = "hd_kb_article", permissions = ["read", "write"] },
+  { name = "hd_kb_feedback", permissions = ["read", "write"] },
+  { name = "hd_kb_search", permissions = ["read", "write"] },
+]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[app]
+label = "Knowledge base"
+icon = "book-open"
+route = "/helpdesk/kb"
+description = "Help articles for customers and agents"
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "helpdesk"

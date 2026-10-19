@@ -1,0 +1,195 @@
+{
+  "access": [
+    {
+      "name": "agents",
+      "roles": [
+        "helpdesk.hd_agent",
+        "helpdesk.hd_manager",
+        "helpdesk.hd_admin",
+        "via:self"
+      ],
+      "operations": [
+        "read",
+        "create",
+        "write"
+      ]
+    },
+    {
+      "name": "requester",
+      "operations": [
+        "read"
+      ],
+      "when": {
+        "requester_user": "$user"
+      }
+    },
+    {
+      "name": "via_plugins",
+      "roles": [
+        "via:*"
+      ],
+      "operations": [
+        "read",
+        "create",
+        "write"
+      ]
+    }
+  ],
+  "fields": [
+    {
+      "fields": [
+        "state",
+        "reference",
+        "first_response_at",
+        "resolved_at",
+        "closed_at",
+        "opened_at",
+        "last_customer_message_at",
+        "last_agent_message_at",
+        "last_activity_at",
+        "message_count",
+        "reopen_count",
+        "rating",
+        "rating_comment",
+        "rated_at",
+        "assigned_at",
+        "merged_into",
+        "split_from",
+        "requester_user"
+      ],
+      "write_roles": [
+        "via:self"
+      ]
+    }
+  ],
+  "workflow": {
+    "field": "state",
+    "initial": [
+      "new"
+    ],
+    "transitions": [
+      {
+        "name": "take",
+        "label": "Take",
+        "from": [
+          "new"
+        ],
+        "to": "open",
+        "roles": [
+          "helpdesk.hd_agent",
+          "helpdesk.hd_manager",
+          "helpdesk.hd_admin",
+          "via:self"
+        ]
+      },
+      {
+        "name": "wait_for_customer",
+        "label": "Wait for customer",
+        "from": [
+          "new",
+          "open",
+          "on_hold"
+        ],
+        "to": "pending",
+        "roles": [
+          "helpdesk.hd_agent",
+          "helpdesk.hd_manager",
+          "helpdesk.hd_admin",
+          "via:self"
+        ]
+      },
+      {
+        "name": "put_on_hold",
+        "label": "Put on hold",
+        "from": [
+          "open",
+          "pending"
+        ],
+        "to": "on_hold",
+        "roles": [
+          "helpdesk.hd_agent",
+          "helpdesk.hd_manager",
+          "helpdesk.hd_admin",
+          "via:self"
+        ]
+      },
+      {
+        "name": "resume",
+        "label": "Resume",
+        "from": [
+          "pending",
+          "on_hold"
+        ],
+        "to": "open",
+        "roles": [
+          "helpdesk.hd_agent",
+          "helpdesk.hd_manager",
+          "helpdesk.hd_admin",
+          "via:self"
+        ]
+      },
+      {
+        "name": "resolve",
+        "label": "Resolve",
+        "from": [
+          "new",
+          "open",
+          "pending",
+          "on_hold"
+        ],
+        "to": "resolved",
+        "roles": [
+          "helpdesk.hd_agent",
+          "helpdesk.hd_manager",
+          "helpdesk.hd_admin",
+          "via:self"
+        ]
+      },
+      {
+        "name": "close",
+        "label": "Close",
+        "from": [
+          "resolved"
+        ],
+        "to": "closed",
+        "roles": [
+          "helpdesk.hd_agent",
+          "helpdesk.hd_manager",
+          "helpdesk.hd_admin",
+          "via:self"
+        ]
+      },
+      {
+        "name": "reopen",
+        "label": "Reopen",
+        "from": [
+          "resolved",
+          "closed"
+        ],
+        "to": "open",
+        "roles": [
+          "helpdesk.hd_agent",
+          "helpdesk.hd_manager",
+          "helpdesk.hd_admin",
+          "via:self"
+        ]
+      },
+      {
+        "name": "merge",
+        "label": "Merge",
+        "from": [
+          "new",
+          "open",
+          "pending",
+          "on_hold",
+          "resolved"
+        ],
+        "to": "merged",
+        "roles": [
+          "via:self"
+        ]
+      }
+    ]
+  },
+  "model": "hd_ticket"
+}

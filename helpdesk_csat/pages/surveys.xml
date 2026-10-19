@@ -1,0 +1,12 @@
+<page route="/helpdesk/csat/surveys" title="Surveys" model="hd_survey" icon="clipboard-list" sort="82" roles="helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="list" model="hd_survey" source="list_surveys" open="/helpdesk/csat/surveys/{id}" create="/helpdesk/csat/surveys/new" create_label="New survey">
+    <columns>
+      <column field="code" label="Code"/>
+      <column field="name" label="Name"/>
+      <column field="send_on" label="Goes out when" fieldType="badge"/>
+      <column field="is_default" label="Default" fieldType="boolean"/>
+      <column field="active" label="Active" fieldType="boolean"/>
+    </columns>
+    <empty title="No surveys" description="A survey says what to ask, when, and who to tell about low ratings."/>
+  </view>
+</page>

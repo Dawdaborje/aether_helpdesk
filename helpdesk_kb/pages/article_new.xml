@@ -1,0 +1,13 @@
+<page route="/helpdesk/kb/articles/new" title="New article" menu="false" model="hd_kb_article" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="create_article" submit="Save draft" success="Draft saved" redirect="/helpdesk/kb/articles">
+    <group title="Article" cols="2">
+      <field name="title" label="Title" required="true" colspan="2"/>
+      <field name="category" label="Topic" fieldType="many2one" entity="topics"/>
+      <field name="visibility" label="For" fieldType="selection" options="public, customers, agents"/>
+      <field name="summary" label="Summary" fieldType="text" colspan="2"/>
+      <field name="body" label="Text (Markdown)" fieldType="text" required="true" colspan="2"/>
+      <field name="tags_text" label="Tags" help="Comma separated; they help search."/>
+      <field name="ticket_type" label="Suggest for tickets of type" fieldType="many2one" entity="types"/>
+    </group>
+  </view>
+</page>

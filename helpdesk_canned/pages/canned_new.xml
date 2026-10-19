@@ -1,0 +1,16 @@
+<page route="/helpdesk/canned/new" title="New canned reply" menu="false" model="hd_canned_reply" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="create_canned_reply" submit="Save reply" success="Saved" redirect="/helpdesk/canned">
+    <group title="Reply" cols="2">
+      <field name="title" label="Title" required="true"/>
+      <field name="shortcut" label="Shortcut" help="Typed after a slash to find it, such as thanks"/>
+      <field name="body" label="Text" fieldType="text" required="true" colspan="2" help="Merge fields: {{requester.first_name|there}}, {{ticket.reference}}, {{ticket.subject}}, {{agent.name}}, {{company.name}}"/>
+      <field name="category" label="Category"/>
+      <field name="then_state" label="Then leave the ticket" fieldType="selection" options="none, pending, on_hold, resolved"/>
+    </group>
+    <group title="Who can use it" cols="2">
+      <field name="scope" label="Shared with" fieldType="selection" options="personal, team, global"/>
+      <field name="team" label="Team" fieldType="many2one" entity="teams" help="For a reply shared with a team."/>
+      <field name="ticket_type" label="Suits tickets of type" fieldType="many2one" entity="types"/>
+    </group>
+  </view>
+</page>

@@ -1,0 +1,145 @@
+{
+  "model_id": "mdl_idixqlpww8",
+  "name": "hd_canned_reply",
+  "label": "%hd_canned_reply%",
+  "plural_label": "%hd_canned_replys%",
+  "icon": "message-square-quote",
+  "title_field": "title",
+  "fields": [
+    {
+      "id": "fld_cxbo6u4s1y",
+      "name": "title",
+      "label": "%title%",
+      "type": "string",
+      "required": true,
+      "max_length": 200
+    },
+    {
+      "id": "fld_bk7xyzg58q",
+      "name": "shortcut",
+      "label": "%shortcut%",
+      "type": "string",
+      "max_length": 40,
+      "index": "plain",
+      "help": "Typed after a slash to find it quickly, such as thanks"
+    },
+    {
+      "id": "fld_ijiy9j16l1",
+      "name": "body",
+      "label": "%body%",
+      "type": "text",
+      "required": true,
+      "help": "Merge fields: {{requester.first_name|there}}, {{ticket.reference}}, {{ticket.subject}}, {{agent.name}}, {{company.name}}"
+    },
+    {
+      "id": "fld_x76oprzn02",
+      "name": "scope",
+      "label": "%scope%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_a32bydv27c",
+          "value": "personal",
+          "label": "%personal%"
+        },
+        {
+          "id": "opt_39btatwxxq",
+          "value": "team",
+          "label": "%team%"
+        },
+        {
+          "id": "opt_b4kid1rkaq",
+          "value": "global",
+          "label": "%global%"
+        }
+      ],
+      "required": true,
+      "default": "personal",
+      "index": "plain"
+    },
+    {
+      "id": "fld_0pjchcrunj",
+      "name": "owner",
+      "label": "%owner%",
+      "type": "string",
+      "max_length": 128,
+      "index": "plain"
+    },
+    {
+      "id": "fld_pc9lbgk28l",
+      "name": "team",
+      "label": "%team%",
+      "type": "link",
+      "target": "helpdesk.hd_team",
+      "target_id": "mdl_albtuhe4nn",
+      "index": "plain"
+    },
+    {
+      "id": "fld_f2k89yk060",
+      "name": "ticket_type",
+      "label": "%ticket_type%",
+      "type": "link",
+      "target": "helpdesk.hd_ticket_type",
+      "target_id": "mdl_2wujlimcwq",
+      "help": "Suggest it first for tickets of this type"
+    },
+    {
+      "id": "fld_pzigdojbb2",
+      "name": "category",
+      "label": "%category%",
+      "type": "string",
+      "max_length": 100
+    },
+    {
+      "id": "fld_hbqmwu4zy9",
+      "name": "then_state",
+      "label": "%then_state%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_zlyvxzn0a4",
+          "value": "none",
+          "label": "%none%"
+        },
+        {
+          "id": "opt_71h1ezafr6",
+          "value": "pending",
+          "label": "%pending%"
+        },
+        {
+          "id": "opt_caecl2nalc",
+          "value": "on_hold",
+          "label": "%on_hold%"
+        },
+        {
+          "id": "opt_wlpzbb9czo",
+          "value": "resolved",
+          "label": "%resolved%"
+        }
+      ],
+      "default": "none",
+      "help": "Where the ticket goes once this reply is sent"
+    },
+    {
+      "id": "fld_ts74lqc4nj",
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true,
+      "index": "plain"
+    },
+    {
+      "id": "fld_bi3l9hs982",
+      "name": "use_count",
+      "label": "%use_count%",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "id": "fld_r2ulhwmom3",
+      "name": "last_used_at",
+      "label": "%last_used_at%",
+      "type": "datetime"
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "model_id": "mdl_nkeocr32zu",
+  "name": "hd_rule",
+  "label": "%hd_rule%",
+  "plural_label": "%hd_rules%",
+  "icon": "workflow",
+  "title_field": "name",
+  "fields": [
+    {
+      "id": "fld_qqe14jr9c8",
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 200
+    },
+    {
+      "id": "fld_1outgjqseo",
+      "name": "description",
+      "label": "%description%",
+      "type": "text"
+    },
+    {
+      "id": "fld_qxt23cqhb8",
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true,
+      "index": "plain"
+    },
+    {
+      "id": "fld_g3nid2tbnf",
+      "name": "rank",
+      "label": "%rank%",
+      "type": "int",
+      "default": 100,
+      "help": "Rules run in this order, lowest first"
+    },
+    {
+      "id": "fld_dm64dshu7a",
+      "name": "trigger",
+      "label": "%trigger%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_9w5tjmgh6k",
+          "value": "created",
+          "label": "%created%"
+        },
+        {
+          "id": "opt_cet8xnouqn",
+          "value": "replied_by_customer",
+          "label": "%replied_by_customer%"
+        },
+        {
+          "id": "opt_wmr186ycr2",
+          "value": "replied_by_agent",
+          "label": "%replied_by_agent%"
+        },
+        {
+          "id": "opt_pumcdv1tch",
+          "value": "status_changed",
+          "label": "%status_changed%"
+        },
+        {
+          "id": "opt_2od37awyrm",
+          "value": "updated",
+          "label": "%updated%"
+        },
+        {
+          "id": "opt_lq0eczg65f",
+          "value": "assigned",
+          "label": "%assigned%"
+        },
+        {
+          "id": "opt_9vbxvmuefe",
+          "value": "resolved",
+          "label": "%resolved%"
+        },
+        {
+          "id": "opt_ouo8tfp50o",
+          "value": "reopened",
+          "label": "%reopened%"
+        },
+        {
+          "id": "opt_z7th4a6ubk",
+          "value": "time",
+          "label": "%time%"
+        }
+      ],
+      "required": true,
+      "index": "plain"
+    },
+    {
+      "id": "fld_1s2w9yd0gd",
+      "name": "match_mode",
+      "label": "%match_mode%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_qqcjv4agcl",
+          "value": "all",
+          "label": "%all%"
+        },
+        {
+          "id": "opt_h0ogf2iepb",
+          "value": "any",
+          "label": "%any%"
+        }
+      ],
+      "default": "all",
+      "help": "All conditions must hold, or any one"
+    },
+    {
+      "id": "fld_byedi1ysir",
+      "name": "stop_after",
+      "label": "%stop_after%",
+      "type": "bool",
+      "default": false,
+      "help": "When this rule fires, later rules for the same event do not run"
+    },
+    {
+      "id": "fld_ql2n6m6lm6",
+      "name": "once_per_ticket",
+      "label": "%once_per_ticket%",
+      "type": "bool",
+      "default": false,
+      "help": "Fire at most once for a ticket (or again after the repeat hours)"
+    },
+    {
+      "id": "fld_7zov02g0z1",
+      "name": "repeat_hours",
+      "label": "%repeat_hours%",
+      "type": "int",
+      "default": 0,
+      "help": "With once per ticket: fire again after this many hours; 0 for never"
+    },
+    {
+      "id": "fld_8ngug3bk8w",
+      "name": "run_count",
+      "label": "%run_count%",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "id": "fld_vb7kundchb",
+      "name": "last_run_at",
+      "label": "%last_run_at%",
+      "type": "datetime"
+    },
+    {
+      "id": "fld_o2i78s2u6v",
+      "name": "conditions",
+      "label": "%conditions%",
+      "type": "child",
+      "target": "hd_rule_condition",
+      "inverse": "rule",
+      "order": "position"
+    },
+    {
+      "id": "fld_tlh57jbprq",
+      "name": "actions",
+      "label": "%actions%",
+      "type": "child",
+      "target": "hd_rule_action",
+      "inverse": "rule",
+      "order": "position"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "model_id": "mdl_3ytkevxksx",
+  "name": "hd_sla_target",
+  "label": "%hd_sla_target%",
+  "plural_label": "%hd_sla_targets%",
+  "icon": "target",
+  "title_field": "policy",
+  "fields": [
+    {
+      "id": "fld_38v740f635",
+      "name": "policy",
+      "label": "%policy%",
+      "type": "link",
+      "target": "hd_sla_policy",
+      "required": true,
+      "index": "plain"
+    },
+    {
+      "id": "fld_979bap6dzs",
+      "name": "position",
+      "label": "%position%",
+      "type": "int"
+    },
+    {
+      "id": "fld_zrf2pk2pzl",
+      "name": "priority",
+      "label": "%priority%",
+      "type": "link",
+      "target": "helpdesk.hd_priority",
+      "target_id": "mdl_uqpczvg35c",
+      "help": "Empty applies to any priority not listed"
+    },
+    {
+      "id": "fld_5oi8rvcqrg",
+      "name": "response_minutes",
+      "label": "%response_minutes%",
+      "type": "int",
+      "help": "Business minutes to the first reply; 0 means no target"
+    },
+    {
+      "id": "fld_bzzc39g2h6",
+      "name": "resolution_minutes",
+      "label": "%resolution_minutes%",
+      "type": "int",
+      "help": "Business minutes to resolve; 0 means no target"
+    }
+  ]
+}

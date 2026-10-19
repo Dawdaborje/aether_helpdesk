@@ -1,0 +1,9 @@
+<page route="/helpdesk/kb" title="Knowledge base" icon="book-open" sort="60" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="dashboard" source="kb_overview" cols="3">
+    <stat label="Published" field="published"/>
+    <stat label="Waiting for review" field="waiting_review"/>
+    <chart title="Articles by state" type="pie" field="by_state" category="state" value="articles"/>
+    <chart title="Most read" type="bar" field="top_viewed" category="title" value="views"/>
+    <chart title="Searched for, not found" type="bar" field="gaps" category="query" value="times"/>
+  </view>
+</page>

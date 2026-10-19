@@ -1,0 +1,13 @@
+<page extends="/helpdesk/tickets/{id}" title="Service level" params="ticket={id}" sort="30" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="list" source="ticket_sla">
+    <columns>
+      <column field="kind" label="Clock" fieldType="badge"/>
+      <column field="status" label="Status" fieldType="badge"/>
+      <column field="percent" label="Used %"/>
+      <column field="remaining_minutes" label="Minutes left"/>
+      <column field="due_at" label="Due" fieldType="datetime"/>
+      <column field="met_at" label="Done" fieldType="datetime"/>
+    </columns>
+    <empty title="No service level" description="No policy matches this ticket."/>
+  </view>
+</page>

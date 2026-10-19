@@ -1,0 +1,10 @@
+<page route="/helpdesk/tickets/{id}/canned" title="Reply with a canned reply" menu="false" model="hd_canned_reply" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="reply_with_canned" submit="Send" success="Reply sent" redirect="/helpdesk/tickets/{id}">
+    <group title="Send a saved answer" cols="2">
+      <field name="canned" label="Reply" fieldType="many2one" source="list_canned_replies" optionLabel="title" entity="replies" required="true"/>
+      <field name="set_state" label="Afterwards" fieldType="selection" options="pending, on_hold, resolved" help="Empty uses the reply's own setting."/>
+      <field name="extra" label="Add a line" fieldType="text" colspan="2"/>
+      <field name="signature" label="Add my signature" fieldType="boolean"/>
+    </group>
+  </view>
+</page>

@@ -1,0 +1,14 @@
+<page route="/helpdesk/automation" title="Rules" model="hd_rule" icon="zap" sort="90" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="list" model="hd_rule" source="list_rules" open="/helpdesk/automation/rules/{id}" create="/helpdesk/automation/rules/new" create_label="New rule">
+    <filter field="trigger" options="created,replied_by_customer,replied_by_agent,status_changed,updated,assigned,resolved,reopened,time" label="When"/>
+    <columns>
+      <column field="rank" label="Order"/>
+      <column field="name" label="Rule"/>
+      <column field="trigger" label="When" fieldType="badge"/>
+      <column field="run_count" label="Ran"/>
+      <column field="last_run_at" label="Last" fieldType="datetime"/>
+      <column field="active" label="Active" fieldType="boolean"/>
+    </columns>
+    <empty title="No rules" description="A rule acts on tickets when something happens."/>
+  </view>
+</page>

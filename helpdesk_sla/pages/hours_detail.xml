@@ -1,0 +1,44 @@
+<page route="/helpdesk/sla/hours/{id}" title="Business hours" menu="false" model="hd_hours" roles="helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" source="get_business_hours" function="set_business_hours" submit="Save">
+    <group title="Business hours" cols="2">
+      <field name="code" label="Code" readonly="true"/>
+      <field name="name" label="Name"/>
+      <field name="utc_offset_minutes" label="UTC offset (minutes)" fieldType="integer"/>
+      <field name="is_default" label="Default" fieldType="boolean"/>
+      <field name="active" label="Active" fieldType="boolean"/>
+    </group>
+    <notebook>
+      <page title="Working days">
+        <view type="list" source="list_hours_days">
+          <columns>
+            <column field="weekday" label="Day" fieldType="badge"/>
+            <column field="start" label="From"/>
+            <column field="end" label="To"/>
+          </columns>
+          <actions>
+            <action name="remove" label="Remove" function="remove_hours_day" confirm="Remove this day?" danger="true"/>
+          </actions>
+          <empty title="Round the clock" description="No working days means every minute counts."/>
+        </view>
+        <buttonbox>
+          <button label="Add working days" href="/helpdesk/sla/hours/{id}/day" variant="outline"/>
+        </buttonbox>
+      </page>
+      <page title="Days off">
+        <view type="list" source="list_holidays">
+          <columns>
+            <column field="day" label="Day" fieldType="date"/>
+            <column field="name" label="Name"/>
+          </columns>
+          <actions>
+            <action name="remove" label="Remove" function="remove_holiday" confirm="Remove this day off?" danger="true"/>
+          </actions>
+          <empty title="No days off" description="Public holidays and closures go here."/>
+        </view>
+        <buttonbox>
+          <button label="Add a day off" href="/helpdesk/sla/hours/{id}/holiday" variant="outline"/>
+        </buttonbox>
+      </page>
+    </notebook>
+  </view>
+</page>

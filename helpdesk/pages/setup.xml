@@ -1,0 +1,11 @@
+<page route="/helpdesk/setup" title="Setup" icon="settings" sort="90">
+  <header title="Helpdesk setup" subtitle="Create the masters your agents need."/>
+  <group title="Masters">
+    <buttonbox>
+      <button label="Teams" href="/helpdesk/teams" variant="secondary"/>
+      <button label="Priorities" href="/helpdesk/priorities" variant="secondary"/>
+      <button label="Ticket types" href="/helpdesk/ticket-types" variant="secondary"/>
+      <button label="Tags" href="/helpdesk/tags" variant="secondary"/>
+    </buttonbox>
+  </group>
+</page>

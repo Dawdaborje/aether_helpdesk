@@ -1,0 +1,11 @@
+<page route="/helpdesk/tickets/{id}/reply" title="Reply" menu="false" model="hd_message" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="reply_ticket" submit="Send reply" success="Reply sent" redirect="/helpdesk/tickets/{id}">
+    <group title="Reply to the requester" cols="2">
+      <field name="to" label="To" help="Leave empty to write to the requester."/>
+      <field name="cc" label="Copy"/>
+      <field name="body" label="Message" fieldType="text" required="true" colspan="2"/>
+      <field name="set_state" label="Afterwards" fieldType="selection" options="pending, on_hold, resolved" help="Pending waits for the customer."/>
+      <field name="resolution" label="Resolution" help="When resolving: what fixed it."/>
+    </group>
+  </view>
+</page>

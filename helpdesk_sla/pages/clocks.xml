@@ -1,0 +1,16 @@
+<page route="/helpdesk/sla/clocks" title="Clocks" model="hd_sla_clock" icon="alarm-clock" sort="41" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="list" model="hd_sla_clock" source="list_sla_clocks" open="/helpdesk/tickets/{ticket}">
+    <filter field="status" options="On track=on_track,At risk=at_risk,Breached=breached,Paused=paused" label="Status"/>
+    <filter field="kind" options="First reply=response,Resolution=resolution" label="Clock"/>
+    <columns>
+      <column field="ticket_reference" label="Ticket"/>
+      <column field="kind" label="Clock" fieldType="badge"/>
+      <column field="status" label="Status" fieldType="badge"/>
+      <column field="percent" label="Used %"/>
+      <column field="remaining_minutes" label="Minutes left"/>
+      <column field="due_at" label="Due" fieldType="datetime"/>
+      <column field="assignee" label="Agent"/>
+    </columns>
+    <empty title="No clocks running" description="Tickets that match a service policy get clocks here."/>
+  </view>
+</page>

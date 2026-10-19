@@ -1,0 +1,10 @@
+<page route="/support" title="Support" public="true" icon="life-buoy" sort="1">
+  <view type="list" source="portal_articles" page_size="10" open="/help/{slug}" create="/support/new" create_label="Ask for help">
+    <search fields="title,summary"/>
+    <columns>
+      <column field="title" label="Help article"/>
+      <column field="summary" label="About"/>
+    </columns>
+    <empty title="No answer yet?" description="Ask for help and we will reply."/>
+  </view>
+</page>

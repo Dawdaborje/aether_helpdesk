@@ -1,0 +1,8 @@
+<page route="/helpdesk/tickets/{id}/assign" title="Assign" menu="false" model="hd_ticket" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="assign_ticket" submit="Assign" success="Assigned" redirect="/helpdesk/tickets/{id}">
+    <group title="Assign" cols="2">
+      <field name="team" label="Team" fieldType="many2one" entity="teams"/>
+      <field name="assignee" label="Agent" fieldType="many2one" source="ticket_assignees" optionLabel="user" entity="agents"/>
+    </group>
+  </view>
+</page>

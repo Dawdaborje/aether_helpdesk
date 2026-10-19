@@ -1,0 +1,10 @@
+<page route="/helpdesk/sla" title="Service levels" icon="timer" sort="40" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="dashboard" source="sla_overview" cols="4">
+    <stat label="Clocks running" field="running"/>
+    <stat label="At risk" field="at_risk"/>
+    <stat label="Breached now" field="breached"/>
+    <stat label="Paused" field="paused"/>
+    <chart title="Finished in the period, by kind" type="bar" field="by_kind" category="kind" value="compliance_percent"/>
+    <chart title="Compliance by policy" type="bar" field="by_policy" category="policy" value="compliance_percent"/>
+  </view>
+</page>

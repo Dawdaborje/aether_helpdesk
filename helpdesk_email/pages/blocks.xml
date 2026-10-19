@@ -1,0 +1,13 @@
+<page route="/helpdesk/email/blocked" title="Blocked senders" model="hd_email_block" icon="ban" sort="73" roles="helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="list" model="hd_email_block" source="list_email_blocks" create="/helpdesk/email/blocked/new" create_label="Block a sender">
+    <columns>
+      <column field="pattern" label="Address or domain"/>
+      <column field="reason" label="Why"/>
+      <column field="hits" label="Stopped"/>
+    </columns>
+    <actions>
+      <action name="remove" label="Unblock" function="remove_email_block" confirm="Allow this sender again?" danger="true"/>
+    </actions>
+    <empty title="Nobody blocked" description="Block an address or a whole @domain."/>
+  </view>
+</page>

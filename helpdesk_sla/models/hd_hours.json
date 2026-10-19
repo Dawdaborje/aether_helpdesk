@@ -1,0 +1,59 @@
+{
+  "model_id": "mdl_vz4ungtl98",
+  "name": "hd_hours",
+  "label": "%hd_hours%",
+  "plural_label": "%hd_hourss%",
+  "icon": "clock",
+  "title_field": "name",
+  "fields": [
+    {
+      "id": "fld_a4hzjcih8o",
+      "name": "code",
+      "label": "%code%",
+      "type": "string",
+      "required": true,
+      "max_length": 64,
+      "index": "unique"
+    },
+    {
+      "id": "fld_ijcdio8270",
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 200
+    },
+    {
+      "id": "fld_nfhbzvmnvz",
+      "name": "utc_offset_minutes",
+      "label": "%utc_offset_minutes%",
+      "type": "int",
+      "default": 0,
+      "help": "Local time is UTC plus this many minutes (Lagos 60, Nairobi 180, New York -300)"
+    },
+    {
+      "id": "fld_xpnn09ddlw",
+      "name": "is_default",
+      "label": "%is_default%",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "id": "fld_injybf72nn",
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "id": "fld_1xmvo4cqvs",
+      "name": "days",
+      "label": "%days%",
+      "type": "child",
+      "target": "hd_hours_day",
+      "inverse": "hours",
+      "order": "position",
+      "help": "No days means round the clock"
+    }
+  ]
+}

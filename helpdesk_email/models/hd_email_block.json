@@ -1,0 +1,48 @@
+{
+  "model_id": "mdl_1bk7u769iv",
+  "name": "hd_email_block",
+  "label": "%hd_email_block%",
+  "plural_label": "%hd_email_blocks%",
+  "icon": "ban",
+  "title_field": "pattern",
+  "fields": [
+    {
+      "id": "fld_f1a8ye8zbu",
+      "name": "pattern",
+      "label": "%pattern%",
+      "type": "string",
+      "required": true,
+      "max_length": 200,
+      "index": "unique",
+      "help": "An address, or @domain.com for a whole domain"
+    },
+    {
+      "id": "fld_q4c9v0wbk0",
+      "name": "reason",
+      "label": "%reason%",
+      "type": "string",
+      "max_length": 300
+    },
+    {
+      "id": "fld_ejxpfd7y8t",
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "id": "fld_jsyxi8v7hk",
+      "name": "hits",
+      "label": "%hits%",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "id": "fld_y1di3bw22t",
+      "name": "created_by",
+      "label": "%created_by%",
+      "type": "string",
+      "max_length": 128
+    }
+  ]
+}

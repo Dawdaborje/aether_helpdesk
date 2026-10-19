@@ -1,0 +1,5 @@
+<page extends="/helpdesk/tickets/{id}" title="Canned button" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <xpath expr="//header" position="inside">
+    <button label="Canned reply" href="/helpdesk/tickets/{id}/canned"/>
+  </xpath>
+</page>

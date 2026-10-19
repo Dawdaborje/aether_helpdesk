@@ -1,0 +1,18 @@
+<page route="/helpdesk/overview" title="Overview" icon="layout-dashboard" sort="5" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="dashboard" source="ticket_overview" cols="4">
+    <stat label="Open" field="open"/>
+    <stat label="Unassigned" field="unassigned"/>
+    <stat label="Assigned to me" field="mine"/>
+    <stat label="Overdue" field="overdue"/>
+    <stat label="Waiting for us" field="waiting_for_us"/>
+    <stat label="Created, 7 days" field="created_7d"/>
+    <stat label="Resolved, 7 days" field="resolved_7d"/>
+    <stat label="Average rating" field="avg_rating"/>
+    <stat label="First reply, hours" field="avg_first_response_hours"/>
+    <stat label="Resolution, hours" field="avg_resolution_hours"/>
+    <chart title="Created and resolved" type="line" field="trend" category="day" value="created"/>
+    <chart title="By state" type="pie" field="by_state" category="state" value="tickets"/>
+    <chart title="Open by priority" type="bar" field="by_priority" category="priority_name" value="tickets"/>
+    <chart title="Open by agent" type="bar" field="by_agent" category="assignee" value="tickets"/>
+  </view>
+</page>

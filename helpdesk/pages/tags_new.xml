@@ -1,0 +1,7 @@
+<page route="/helpdesk/tags/new" title="New" model="hd_tag" menu="false">
+  <view type="form" function="create_tag" submit="Add" success="Added" redirect="/helpdesk/tags">
+    <field name="code" label="Code" required="true"/>
+    <field name="name" label="Name" required="true"/>
+    <field name="color" label="Color"/>
+  </view>
+</page>

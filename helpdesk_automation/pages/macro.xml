@@ -1,0 +1,28 @@
+<page route="/helpdesk/automation/macros/{id}" title="Macro" menu="false" model="hd_macro" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" source="get_macro" function="update_macro" submit="Save">
+    <group title="Macro" cols="2">
+      <field name="name" label="Name" readonly="true"/>
+      <field name="scope" label="Shared with" readonly="true"/>
+      <field name="active" label="Active" fieldType="boolean"/>
+      <field name="use_count" label="Times used" readonly="true"/>
+    </group>
+    <notebook>
+      <page title="Actions">
+        <view type="list" source="list_macro_actions">
+          <columns>
+            <column field="action" label="Action" fieldType="badge"/>
+            <column field="value" label="Value / message"/>
+            <column field="target" label="Who or what"/>
+          </columns>
+          <actions>
+            <action name="remove" label="Remove" function="remove_macro_action" confirm="Remove this action?" danger="true"/>
+          </actions>
+          <empty title="Does nothing" description="Add an action."/>
+        </view>
+        <buttonbox>
+          <button label="Add an action" href="/helpdesk/automation/macros/{id}/action" variant="outline"/>
+        </buttonbox>
+      </page>
+    </notebook>
+  </view>
+</page>

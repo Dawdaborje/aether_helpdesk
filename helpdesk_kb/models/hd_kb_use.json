@@ -1,0 +1,64 @@
+{
+  "model_id": "mdl_wd87owdmxo",
+  "name": "hd_kb_use",
+  "label": "%hd_kb_use%",
+  "plural_label": "%hd_kb_uses%",
+  "icon": "link",
+  "title_field": "kind",
+  "fields": [
+    {
+      "id": "fld_x7hjkoqmxt",
+      "name": "article",
+      "label": "%article%",
+      "type": "link",
+      "target": "hd_kb_article",
+      "required": true,
+      "index": "plain"
+    },
+    {
+      "id": "fld_32tf9214hr",
+      "name": "ticket",
+      "label": "%ticket%",
+      "type": "link",
+      "target": "helpdesk_ticket.hd_ticket",
+      "target_id": "mdl_ujzde8gxd6",
+      "index": "plain"
+    },
+    {
+      "id": "fld_j3g4vrv2fb",
+      "name": "kind",
+      "label": "%kind%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_so335w06k9",
+          "value": "sent",
+          "label": "%sent%"
+        },
+        {
+          "id": "opt_sz89qsa0he",
+          "value": "suggested",
+          "label": "%suggested%"
+        },
+        {
+          "id": "opt_nx309u8020",
+          "value": "created_from",
+          "label": "%created_from%"
+        }
+      ]
+    },
+    {
+      "id": "fld_v396qqh91y",
+      "name": "by",
+      "label": "%by%",
+      "type": "string",
+      "max_length": 128
+    },
+    {
+      "id": "fld_b022e52ejx",
+      "name": "at",
+      "label": "%at%",
+      "type": "datetime"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "model_id": "mdl_dsl19m7j3e",
+  "name": "hd_rule_condition",
+  "label": "%hd_rule_condition%",
+  "plural_label": "%hd_rule_conditions%",
+  "icon": "filter",
+  "title_field": "field",
+  "fields": [
+    {
+      "id": "fld_ez66a8tdzi",
+      "name": "rule",
+      "label": "%rule%",
+      "type": "link",
+      "target": "hd_rule",
+      "required": true,
+      "index": "plain"
+    },
+    {
+      "id": "fld_fysdeb0e6b",
+      "name": "position",
+      "label": "%position%",
+      "type": "int"
+    },
+    {
+      "id": "fld_52dug6wth6",
+      "name": "field",
+      "label": "%field%",
+      "type": "string",
+      "required": true,
+      "max_length": 60
+    },
+    {
+      "id": "fld_u1z3r2h6r1",
+      "name": "op",
+      "label": "%op%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_mr1pvmy182",
+          "value": "eq",
+          "label": "%eq%"
+        },
+        {
+          "id": "opt_k4b986tw82",
+          "value": "ne",
+          "label": "%ne%"
+        },
+        {
+          "id": "opt_658e7ic93u",
+          "value": "contains",
+          "label": "%contains%"
+        },
+        {
+          "id": "opt_1qprqrvysv",
+          "value": "not_contains",
+          "label": "%not_contains%"
+        },
+        {
+          "id": "opt_uuzcwmvcfr",
+          "value": "in",
+          "label": "%in%"
+        },
+        {
+          "id": "opt_2rc7xq3sl4",
+          "value": "gt",
+          "label": "%gt%"
+        },
+        {
+          "id": "opt_20jtr8gl09",
+          "value": "lt",
+          "label": "%lt%"
+        },
+        {
+          "id": "opt_f3uarghfxs",
+          "value": "gte",
+          "label": "%gte%"
+        },
+        {
+          "id": "opt_ou45tpc2m1",
+          "value": "lte",
+          "label": "%lte%"
+        },
+        {
+          "id": "opt_6r935oleez",
+          "value": "is_set",
+          "label": "%is_set%"
+        },
+        {
+          "id": "opt_h1j787dnoy",
+          "value": "is_empty",
+          "label": "%is_empty%"
+        }
+      ],
+      "required": true
+    },
+    {
+      "id": "fld_4m8x0i84om",
+      "name": "value",
+      "label": "%value%",
+      "type": "string",
+      "max_length": 500
+    }
+  ]
+}

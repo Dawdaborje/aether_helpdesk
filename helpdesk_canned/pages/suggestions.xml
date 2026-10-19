@@ -1,0 +1,12 @@
+<page extends="/helpdesk/tickets/{id}" title="Suggested replies" params="id={id}" sort="20" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="list" source="suggest_canned_replies">
+    <columns>
+      <column field="title" label="Reply"/>
+      <column field="shortcut" label="Shortcut"/>
+      <column field="scope" label="Shared with" fieldType="badge"/>
+      <column field="then_state" label="Then" fieldType="badge"/>
+      <column field="use_count" label="Used"/>
+    </columns>
+    <empty title="No suggestions" description="Saved replies that fit this ticket appear here."/>
+  </view>
+</page>

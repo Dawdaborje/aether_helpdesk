@@ -1,0 +1,10 @@
+<page route="/support/rate/{token}" title="How did we do?" public="true" menu="false">
+  <view type="form" source="csat_get" function="csat_submit" submit="Send" success="Thank you for telling us" clear="true">
+    <group title="Your rating" cols="1">
+      <field name="question" label="Question" readonly="true"/>
+      <field name="reference" label="Request" readonly="true"/>
+      <field name="rating" label="Your rating, 1 (poor) to 5 (excellent)" fieldType="integer" required="true"/>
+      <field name="comment" label="Anything to add?" fieldType="text"/>
+    </group>
+  </view>
+</page>

@@ -1,0 +1,22 @@
+<page route="/helpdesk/kb/articles" title="Articles" model="hd_kb_article" icon="files" sort="61" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="list" model="hd_kb_article" source="list_kb_articles" page_size="25" open="/helpdesk/kb/articles/{id}" create="/helpdesk/kb/articles/new" create_label="New article">
+    <search fields="title,summary,tags_text,slug"/>
+    <filter field="state" options="Draft=draft,In review=review,Published=published,Archived=archived" label="State"/>
+    <filter field="visibility" options="public,customers,agents" label="Audience"/>
+    <columns>
+      <column field="title" label="Title"/>
+      <column field="category" label="Topic"/>
+      <column field="state" label="State" fieldType="badge"/>
+      <column field="visibility" label="For" fieldType="badge"/>
+      <column field="views" label="Views"/>
+      <column field="helpful_yes" label="Helpful"/>
+      <column field="helpful_no" label="Not helpful"/>
+    </columns>
+    <actions>
+      <action name="review" label="Send for review" function="submit_article"/>
+      <action name="publish" label="Publish" function="publish_article" confirm="Publish this article?"/>
+      <action name="archive" label="Archive" function="archive_article" confirm="Archive this article?" danger="true"/>
+    </actions>
+    <empty title="No articles" description="Write the first help article."/>
+  </view>
+</page>

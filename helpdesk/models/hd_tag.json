@@ -1,0 +1,49 @@
+{
+  "model_id": "mdl_hnaxfhqet3",
+  "name": "hd_tag",
+  "label": "%tag%",
+  "plural_label": "%tags%",
+  "icon": "hash",
+  "title_field": "name",
+  "fields": [
+    {
+      "id": "fld_h6dek6le3z",
+      "name": "code",
+      "label": "%code%",
+      "type": "string",
+      "required": true,
+      "max_length": 64,
+      "index": "unique"
+    },
+    {
+      "id": "fld_yrjtvj3tmu",
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 200
+    },
+    {
+      "id": "fld_2lzn5hy3v5",
+      "name": "color",
+      "label": "%color%",
+      "type": "string",
+      "max_length": 32
+    },
+    {
+      "id": "fld_omt57t35fd",
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true
+    }
+  ],
+  "view": {
+    "list": [
+      "code",
+      "name",
+      "color",
+      "active"
+    ]
+  }
+}

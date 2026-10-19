@@ -1,0 +1,15 @@
+<page route="/helpdesk/canned/{id}" title="Canned reply" menu="false" model="hd_canned_reply" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" source="get_canned_reply" function="update_canned_reply" submit="Save">
+    <group title="Reply" cols="2">
+      <field name="title" label="Title"/>
+      <field name="shortcut" label="Shortcut"/>
+      <field name="body" label="Text" fieldType="text" colspan="2"/>
+      <field name="category" label="Category"/>
+      <field name="then_state" label="Then leave the ticket" fieldType="selection" options="none, pending, on_hold, resolved"/>
+      <field name="scope" label="Shared with" readonly="true"/>
+      <field name="ticket_type" label="Suits tickets of type" fieldType="many2one" entity="types"/>
+      <field name="active" label="Active" fieldType="boolean"/>
+      <field name="use_count" label="Times used" readonly="true"/>
+    </group>
+  </view>
+</page>

@@ -1,0 +1,6 @@
+<page route="/helpdesk/ticket-types/new" title="New" model="hd_ticket_type" menu="false">
+  <view type="form" function="create_ticket_type" submit="Add" success="Added" redirect="/helpdesk/ticket-types">
+    <field name="code" label="Code" required="true"/>
+    <field name="name" label="Name" required="true"/>
+  </view>
+</page>

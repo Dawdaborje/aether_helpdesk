@@ -1,0 +1,27 @@
+<page route="/helpdesk/csat/surveys/{id}" title="Survey" menu="false" model="hd_survey" roles="helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" source="get_survey" function="update_survey" submit="Save">
+    <group title="Survey" cols="2">
+      <field name="code" label="Code" readonly="true"/>
+      <field name="name" label="Name"/>
+      <field name="send_on" label="Goes out when a ticket is" fieldType="selection" options="resolved, closed"/>
+      <field name="active" label="Active" fieldType="boolean"/>
+      <field name="is_default" label="Default" fieldType="boolean"/>
+      <field name="team" label="Only for team" fieldType="many2one" entity="teams"/>
+      <field name="ticket_type" label="Only for kind" fieldType="many2one" entity="types"/>
+    </group>
+    <group title="Timing" cols="2">
+      <field name="delay_minutes" label="Wait (minutes)" fieldType="integer"/>
+      <field name="reminder_days" label="Remind after (days)" fieldType="integer"/>
+      <field name="expires_days" label="Closes after (days)" fieldType="integer"/>
+      <field name="cooldown_days" label="Not again within (days)" fieldType="integer"/>
+      <field name="alert_at" label="Alert at or below" fieldType="integer"/>
+      <field name="alert_user" label="Also tell"/>
+    </group>
+    <group title="Words" cols="1">
+      <field name="subject" label="Email subject"/>
+      <field name="intro" label="Message" fieldType="text"/>
+      <field name="question" label="Question"/>
+      <field name="follow_up" label="Follow-up for the comment"/>
+    </group>
+  </view>
+</page>

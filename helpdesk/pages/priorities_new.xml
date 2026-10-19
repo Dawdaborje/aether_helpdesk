@@ -1,0 +1,8 @@
+<page route="/helpdesk/priorities/new" title="New" model="hd_priority" menu="false">
+  <view type="form" function="create_priority" submit="Add" success="Added" redirect="/helpdesk/priorities">
+    <field name="code" label="Code" required="true"/>
+    <field name="name" label="Name" required="true"/>
+    <field name="level" label="Level"/>
+    <field name="color" label="Color"/>
+  </view>
+</page>

@@ -1,0 +1,11 @@
+<page extends="/helpdesk/tickets/{id}" title="Automation" params="ticket={id}" sort="40" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="list" source="list_rule_runs">
+    <columns>
+      <column field="at" label="When" fieldType="datetime"/>
+      <column field="rule" label="Rule"/>
+      <column field="ok" label="Worked" fieldType="boolean"/>
+      <column field="summary" label="What happened"/>
+    </columns>
+    <empty title="No rule has run" description="Rules that acted on this ticket are listed here."/>
+  </view>
+</page>

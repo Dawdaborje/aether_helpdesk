@@ -1,0 +1,10 @@
+<page route="/helpdesk/tickets/{id}/subticket" title="Sub-ticket" menu="false" model="hd_ticket" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="create_subticket" submit="Create" success="Sub-ticket created" redirect="/helpdesk/tickets/{id}">
+    <group title="Sub-ticket" cols="2">
+      <field name="subject" label="Subject" required="true"/>
+      <field name="description" label="Description" fieldType="text" colspan="2"/>
+      <field name="team" label="Team" fieldType="many2one" entity="teams"/>
+      <field name="assignee" label="Assign to" fieldType="many2one" source="ticket_assignees" optionLabel="user" entity="agents"/>
+    </group>
+  </view>
+</page>

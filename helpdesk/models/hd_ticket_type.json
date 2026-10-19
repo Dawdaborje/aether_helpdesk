@@ -1,0 +1,49 @@
+{
+  "model_id": "mdl_2wujlimcwq",
+  "name": "hd_ticket_type",
+  "label": "%ticket_type%",
+  "plural_label": "%ticket_types%",
+  "icon": "tag",
+  "title_field": "name",
+  "fields": [
+    {
+      "id": "fld_3xdfo4vlfv",
+      "name": "code",
+      "label": "%code%",
+      "type": "string",
+      "required": true,
+      "max_length": 64,
+      "index": "unique"
+    },
+    {
+      "id": "fld_rya3ghoc7x",
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 200
+    },
+    {
+      "id": "fld_uqkw2kmjlk",
+      "name": "default_team",
+      "label": "%default_team%",
+      "type": "link",
+      "target": "hd_team"
+    },
+    {
+      "id": "fld_qbcm3r7o55",
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true
+    }
+  ],
+  "view": {
+    "list": [
+      "code",
+      "name",
+      "default_team",
+      "active"
+    ]
+  }
+}

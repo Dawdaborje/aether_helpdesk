@@ -1,0 +1,87 @@
+{
+  "model_id": "mdl_ep452rl0ce",
+  "name": "hd_hours_day",
+  "label": "%hd_hours_day%",
+  "plural_label": "%hd_hours_days%",
+  "icon": "calendar-days",
+  "title_field": "weekday",
+  "fields": [
+    {
+      "id": "fld_sflmbxgzst",
+      "name": "hours",
+      "label": "%hours%",
+      "type": "link",
+      "target": "hd_hours",
+      "required": true,
+      "index": "plain"
+    },
+    {
+      "id": "fld_mh3mv2zd9h",
+      "name": "position",
+      "label": "%position%",
+      "type": "int"
+    },
+    {
+      "id": "fld_rghmmvkj4d",
+      "name": "weekday",
+      "label": "%weekday%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_56rx5ch5i5",
+          "value": "mon",
+          "label": "%mon%"
+        },
+        {
+          "id": "opt_bq54wpagys",
+          "value": "tue",
+          "label": "%tue%"
+        },
+        {
+          "id": "opt_2lcihdnmtl",
+          "value": "wed",
+          "label": "%wed%"
+        },
+        {
+          "id": "opt_939676zo7m",
+          "value": "thu",
+          "label": "%thu%"
+        },
+        {
+          "id": "opt_3t3uixh7wm",
+          "value": "fri",
+          "label": "%fri%"
+        },
+        {
+          "id": "opt_sykch1njpy",
+          "value": "sat",
+          "label": "%sat%"
+        },
+        {
+          "id": "opt_tn1t8prcc4",
+          "value": "sun",
+          "label": "%sun%"
+        }
+      ],
+      "required": true
+    },
+    {
+      "id": "fld_rq8m1xnzc2",
+      "name": "start",
+      "label": "%start%",
+      "type": "string",
+      "required": true,
+      "max_length": 5,
+      "help": "HH:MM, local time"
+    },
+    {
+      "id": "fld_ympnuwtxhn",
+      "name": "end",
+      "label": "%end%",
+      "type": "string",
+      "required": true,
+      "max_length": 5,
+      "help": "HH:MM, local time"
+    }
+  ]
+}

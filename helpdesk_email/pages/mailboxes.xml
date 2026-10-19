@@ -1,0 +1,13 @@
+<page route="/helpdesk/email/mailboxes" title="Mailboxes" model="hd_mailbox" icon="at-sign" sort="72" roles="helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="list" model="hd_mailbox" source="list_mailboxes" open="/helpdesk/email/mailboxes/{id}" create="/helpdesk/email/mailboxes/new" create_label="New mailbox">
+    <columns>
+      <column field="address" label="Address"/>
+      <column field="name" label="Name"/>
+      <column field="team" label="Team"/>
+      <column field="received_count" label="Received"/>
+      <column field="last_received_at" label="Last" fieldType="datetime"/>
+      <column field="active" label="Active" fieldType="boolean"/>
+    </columns>
+    <empty title="No mailboxes" description="A mailbox is an address customers write to."/>
+  </view>
+</page>

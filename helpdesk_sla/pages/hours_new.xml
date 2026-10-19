@@ -1,0 +1,10 @@
+<page route="/helpdesk/sla/hours/new" title="New business hours" menu="false" model="hd_hours" roles="helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="create_business_hours" submit="Create" success="Created" redirect="/helpdesk/sla/hours">
+    <group title="Business hours" cols="2">
+      <field name="code" label="Code" required="true"/>
+      <field name="name" label="Name" required="true"/>
+      <field name="utc_offset_minutes" label="UTC offset (minutes)" fieldType="integer" help="Lagos 60, Nairobi 180, New York -300."/>
+      <field name="is_default" label="Default" fieldType="boolean"/>
+    </group>
+  </view>
+</page>

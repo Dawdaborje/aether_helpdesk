@@ -1,0 +1,62 @@
+[plugin]
+name = "helpdesk"
+icon_path = "assets/logo.svg"
+label = "Helpdesk"
+version = "0.1.0"
+description = "Teams, agents, priorities, ticket types, tags and helpdesk settings."
+long_description = """
+Teams, agents, priorities, ticket types, tags and helpdesk settings. Written in Rust.
+See docs/design.md in this plugin (helpdesk/docs/design.md).
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["party", "company", "number_sequence"]
+capabilities = ["db::query", "db::mutate", "events::emit", "plugins::call"]
+access_models = [
+  { name = "hd_team", permissions = ["read", "write"] },
+  { name = "hd_team_member", permissions = ["read", "write"] },
+  { name = "hd_priority", permissions = ["read", "write"] },
+  { name = "hd_ticket_type", permissions = ["read", "write"] },
+  { name = "hd_tag", permissions = ["read", "write"] },
+  { name = "hd_settings", permissions = ["read", "write"] },
+]
+# Visitors may list the kinds of request when they ask for help.
+public_functions = ["public_ticket_types"]
+public_capabilities = ["db::query"]
+public_access_models = [{ name = "hd_ticket_type", permissions = ["read"] }]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[[command]]
+name = "seed"
+function = "seed_helpdesk"
+help = "Create the starter priorities and ticket types (idempotent)"
+on_install = true
+on_upgrade = true
+
+[[roles]]
+name = "hd_agent"
+label = "Helpdesk agent"
+description = "Works tickets and reads helpdesk masters."
+
+[[roles]]
+name = "hd_manager"
+label = "Helpdesk manager"
+description = "Agent rights plus team oversight and reporting."
+
+[[roles]]
+name = "hd_admin"
+label = "Helpdesk administrator"
+description = "Creates and changes helpdesk masters and settings."
+
+[app]
+label = "Helpdesk"
+icon = "headset"
+route = "/helpdesk"
+description = "Tickets, SLA, knowledge base and helpdesk setup."
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "helpdesk"

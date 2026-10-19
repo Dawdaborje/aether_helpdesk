@@ -1,0 +1,75 @@
+[plugin]
+name = "helpdesk_csat"
+icon_path = "assets/logo.svg"
+label = "Satisfaction"
+version = "0.1.0"
+description = "Satisfaction surveys sent when a ticket is solved, answered from an emailed link, with reminders, alerts on low ratings and reports."
+long_description = """
+When a ticket is resolved (or closed) and the company has surveys switched on in the helpdesk settings, the customer
+gets a short survey by email. It is answered from a link with no account, written to the ticket as its rating, and a
+low rating tells the agent and someone you name. Surveys can wait before going out, are not repeated to the same person
+within a cooldown, get one reminder and then expire. Surveys can differ by team and ticket type. Reports show
+satisfaction, the answer rate, the spread of ratings and results by agent, team and day. Written in Rust. See
+docs/design.md.
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["helpdesk_ticket", "helpdesk"]
+capabilities = ["db::query", "db::mutate", "plugins::call", "events::emit", "events::subscribe", "scheduler::enqueue", "communication::send", "email::send", "notify::send"]
+access_models = [
+  { name = "hd_survey", permissions = ["read", "write"] },
+  { name = "hd_survey_response", permissions = ["read", "write"] },
+]
+public_functions = ["csat_get", "csat_submit"]
+public_capabilities = ["db::query", "db::mutate", "scheduler::enqueue"]
+public_access_models = [
+  { name = "hd_survey", permissions = ["read"] },
+  { name = "hd_survey_response", permissions = ["read", "write"] },
+]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[[events]]
+name = "survey_sent"
+
+[[events]]
+name = "survey_answered"
+
+[[events]]
+name = "ticket_low_rating"
+
+[[events]]
+name = "helpdesk_ticket.ticket_resolved"
+direction = "listen"
+handler = "on_ticket_resolved"
+
+[[events]]
+name = "helpdesk_ticket.ticket_closed"
+direction = "listen"
+handler = "on_ticket_closed"
+
+[[schedule]]
+name = "survey-sweep"
+title = "Survey reminders and expiry"
+description = "Reminds customers who have not answered and closes surveys that ran out."
+function = "survey_sweep"
+cron = "5 * * * *"
+
+[[command]]
+name = "seed"
+function = "seed_csat"
+help = "Create the standard survey (idempotent)"
+on_install = true
+on_upgrade = true
+
+[app]
+label = "Satisfaction"
+icon = "smile"
+route = "/helpdesk/csat"
+description = "How customers rate the help they got"
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "helpdesk"

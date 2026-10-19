@@ -1,0 +1,33 @@
+{
+  "model": "hd_tag",
+  "access": [
+    {
+      "name": "read",
+      "operations": [
+        "read"
+      ]
+    },
+    {
+      "name": "write",
+      "roles": [
+        "hd_admin"
+      ],
+      "operations": [
+        "read",
+        "create",
+        "write"
+      ]
+    },
+    {
+      "name": "via_plugins",
+      "roles": [
+        "via:*"
+      ],
+      "operations": [
+        "read",
+        "create",
+        "write"
+      ]
+    }
+  ]
+}

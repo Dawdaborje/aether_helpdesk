@@ -1,0 +1,19 @@
+<page route="/helpdesk/tickets/mine" title="My tickets" model="hd_ticket" icon="user-check" sort="11" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="list" model="hd_ticket" source="my_tickets" page_size="25" open="/helpdesk/tickets/{id}">
+    <search fields="reference,subject,requester_name,requester_email,tags_text"/>
+    <filter field="state" options="New=new,Open=open,Pending=pending,On hold=on_hold" label="State"/>
+    <columns>
+      <column field="reference" label="Reference"/>
+      <column field="subject" label="Subject"/>
+      <column field="customer" label="Customer"/>
+      <column field="priority" label="Priority"/>
+      <column field="state" label="State" fieldType="badge"/>
+      <column field="due_at" label="Due" fieldType="datetime"/>
+      <column field="last_activity_at" label="Last activity" fieldType="datetime"/>
+    </columns>
+    <actions>
+      <action name="resolve" label="Resolve" function="resolve_ticket" confirm="Resolve this ticket?"/>
+    </actions>
+    <empty title="Nothing assigned to you" description="Tickets assigned to you that are still open appear here."/>
+  </view>
+</page>

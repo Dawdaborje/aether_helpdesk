@@ -1,0 +1,16 @@
+{
+  "access": [
+    {
+      "name": "admin",
+      "roles": [
+        "via:self"
+      ],
+      "operations": [
+        "read",
+        "create",
+        "write"
+      ]
+    }
+  ],
+  "model": "counter"
+}

@@ -1,0 +1,83 @@
+[plugin]
+name = "helpdesk_ticket"
+icon_path = "assets/logo.svg"
+label = "Tickets"
+version = "0.1.1"
+description = "Tickets with one thread of public replies and internal notes, assignment, merge and split, time, ratings and a live board."
+long_description = """
+A ticket is raised by a customer (a party) or by an agent, over any channel, and is worked in one thread of public
+replies (emailed to the requester) and internal notes. Teams assign tickets by hand, round robin or by load. Waiting
+on the customer or on a third party is a state of its own, so the SLA clocks (helpdesk_sla) can pause. Tickets can be
+merged, split and nested, carry time, tags and a link to a record in another plugin, and are rated by the requester.
+Every step is announced as an event for SLA, automation and reporting. Written in Rust. See docs/design.md.
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["helpdesk", "party", "company"]
+capabilities = ["db::query", "db::mutate", "db::transaction", "events::emit", "events::subscribe", "plugins::call", "communication::send", "email::send", "notify::send", "scheduler::enqueue"]
+access_models = [
+  { name = "hd_ticket", permissions = ["read", "write"] },
+  { name = "hd_message", permissions = ["read", "write"] },
+  { name = "hd_ticket_tag", permissions = ["read", "write"] },
+  { name = "hd_time_entry", permissions = ["read", "write"] },
+  { name = "counter", permissions = ["read", "write"] },
+]
+# Someone without an account asks for help and follows it with the reference and the secret key from their email.
+public_functions = ["visitor_submit", "visitor_view", "visitor_reply", "visitor_rate", "visitor_reopen"]
+public_capabilities = ["db::query", "db::mutate", "events::emit", "scheduler::enqueue"]
+public_access_models = [
+  { name = "hd_ticket", permissions = ["read", "write"] },
+  { name = "hd_message", permissions = ["read", "write"] },
+  { name = "counter", permissions = ["read", "write"] },
+]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[[events]]
+name = "ticket_created"
+
+[[events]]
+name = "ticket_updated"
+
+[[events]]
+name = "ticket_assigned"
+
+[[events]]
+name = "ticket_replied"
+
+[[events]]
+name = "ticket_status_changed"
+
+[[events]]
+name = "ticket_resolved"
+
+[[events]]
+name = "ticket_closed"
+
+[[events]]
+name = "ticket_reopened"
+
+[[events]]
+name = "ticket_merged"
+
+[[events]]
+name = "ticket_rated"
+
+[[schedule]]
+name = "tickets-nightly"
+title = "Ticket upkeep"
+description = "Closes tickets that have stayed resolved for the configured days."
+function = "tickets_nightly"
+cron = "10 3 * * *"
+
+[app]
+label = "Tickets"
+icon = "ticket"
+route = "/helpdesk/tickets"
+description = "Work, assign and resolve customer tickets"
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "helpdesk"

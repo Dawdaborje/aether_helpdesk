@@ -1,0 +1,8 @@
+<page route="/helpdesk/teams/new" title="New" model="hd_team" menu="false">
+  <view type="form" function="create_team" submit="Add" success="Added" redirect="/helpdesk/teams">
+    <field name="code" label="Code" required="true"/>
+    <field name="name" label="Name" required="true"/>
+    <field name="company" label="Company" required="true"/>
+    <field name="leader" label="Leader"/>
+  </view>
+</page>

@@ -1,0 +1,9 @@
+<page route="/helpdesk/sla/hours/{id}/day" title="Add working days" menu="false" model="hd_hours_day" roles="helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="add_hours_day" submit="Add" success="Added" redirect="/helpdesk/sla/hours/{id}">
+    <group title="Working days" cols="2">
+      <field name="weekday" label="Days" required="true" help="One or several: mon,tue,wed,thu,fri"/>
+      <field name="start" label="From" required="true" help="HH:MM, local time"/>
+      <field name="end" label="To" required="true" help="HH:MM, local time"/>
+    </group>
+  </view>
+</page>

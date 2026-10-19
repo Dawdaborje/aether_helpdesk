@@ -1,0 +1,10 @@
+<page route="/helpdesk/kb/topics/new" title="New topic" menu="false" model="hd_kb_category" roles="helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="create_kb_category" submit="Create topic" success="Created" redirect="/helpdesk/kb/topics">
+    <group title="Topic" cols="2">
+      <field name="name" label="Name" required="true"/>
+      <field name="parent" label="Inside" fieldType="many2one" source="list_kb_categories" optionLabel="name" entity="topics"/>
+      <field name="sequence" label="Order" fieldType="integer"/>
+      <field name="description" label="About" fieldType="text" colspan="2"/>
+    </group>
+  </view>
+</page>

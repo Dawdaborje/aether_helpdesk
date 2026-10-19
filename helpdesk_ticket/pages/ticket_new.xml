@@ -1,0 +1,22 @@
+<page route="/helpdesk/tickets/new" title="New ticket" menu="false" model="hd_ticket" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="create_ticket" submit="Create ticket" success="Ticket created" redirect="/helpdesk/tickets">
+    <group title="What is it about" cols="2">
+      <field name="subject" label="Subject" required="true" colspan="2"/>
+      <field name="description" label="Description" fieldType="text" colspan="2"/>
+      <field name="channel" label="Channel" fieldType="selection" options="web, email, phone, chat, internal, api"/>
+      <field name="due_at" label="Due" fieldType="datetime"/>
+    </group>
+    <group title="Who asked" cols="2">
+      <field name="customer" label="Customer" fieldType="many2one" entity="customers"/>
+      <field name="requester_name" label="Name"/>
+      <field name="requester_email" label="Email"/>
+      <field name="requester_phone" label="Phone"/>
+    </group>
+    <group title="Handling" cols="2">
+      <field name="team" label="Team" fieldType="many2one" entity="teams"/>
+      <field name="ticket_type" label="Type" fieldType="many2one" entity="types"/>
+      <field name="priority" label="Priority" fieldType="many2one" entity="priorities"/>
+      <field name="assignee" label="Assign to" fieldType="many2one" source="ticket_assignees" optionLabel="user" entity="agents" help="Leave empty to let the team's rule choose."/>
+    </group>
+  </view>
+</page>

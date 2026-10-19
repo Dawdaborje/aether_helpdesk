@@ -1,0 +1,8 @@
+<page route="/helpdesk/email/blocked/new" title="Block a sender" menu="false" model="hd_email_block" roles="helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" function="add_email_block" submit="Block" success="Blocked" redirect="/helpdesk/email/blocked">
+    <group title="Block" cols="1">
+      <field name="pattern" label="Address or @domain.com" required="true"/>
+      <field name="reason" label="Why"/>
+    </group>
+  </view>
+</page>

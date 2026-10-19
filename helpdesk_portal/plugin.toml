@@ -1,0 +1,35 @@
+[plugin]
+name = "helpdesk_portal"
+icon_path = "assets/logo.svg"
+label = "Customer portal"
+version = "0.1.1"
+description = "Search the help centre, ask for help, and follow, answer, rate and reopen a request, with or without an account."
+long_description = """
+The customer side of the helpdesk. Customers search the help centre first and ask only if it did not answer; the form
+works for visitors (who get a reference and a secret key, also emailed) and for signed-in customers (whose requests are
+listed under My requests). A request is followed at /support/track/{reference}/{key}, where the customer reads the
+conversation (never internal notes), writes back, rates a solved request and reopens it. The plugin keeps no data of its
+own: it passes each call to the ticket and knowledge-base plugins as the caller, so a visitor can do only what those
+plugins allow visitors. Written in Rust. See docs/design.md.
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["helpdesk_ticket", "helpdesk_kb", "helpdesk", "company"]
+capabilities = ["plugins::call"]
+access_models = []
+public_functions = ["portal_info", "portal_articles", "portal_ticket_types", "portal_submit", "portal_find", "portal_view", "portal_messages", "portal_reply", "portal_rate", "portal_reopen", "portal_my"]
+public_capabilities = ["plugins::call"]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[app]
+label = "Support"
+icon = "life-buoy"
+route = "/support"
+description = "Get help, ask a question, follow your requests"
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "helpdesk"

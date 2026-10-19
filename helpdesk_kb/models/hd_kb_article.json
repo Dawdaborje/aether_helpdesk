@@ -1,0 +1,187 @@
+{
+  "model_id": "mdl_rm7kk0x4vb",
+  "name": "hd_kb_article",
+  "label": "%hd_kb_article%",
+  "plural_label": "%hd_kb_articles%",
+  "icon": "book-open",
+  "title_field": "title",
+  "fields": [
+    {
+      "id": "fld_1o0wcdup62",
+      "name": "title",
+      "label": "%title%",
+      "type": "string",
+      "required": true,
+      "max_length": 300
+    },
+    {
+      "id": "fld_sf9dtjcw9m",
+      "name": "slug",
+      "label": "%slug%",
+      "type": "string",
+      "required": true,
+      "max_length": 160,
+      "index": "unique"
+    },
+    {
+      "id": "fld_ob14iyc6i4",
+      "name": "category",
+      "label": "%category%",
+      "type": "link",
+      "target": "hd_kb_category",
+      "index": "plain"
+    },
+    {
+      "id": "fld_tsfs72mrac",
+      "name": "summary",
+      "label": "%summary%",
+      "type": "text"
+    },
+    {
+      "id": "fld_ukmyl47zyp",
+      "name": "body",
+      "label": "%body%",
+      "type": "text",
+      "required": true,
+      "help": "Markdown"
+    },
+    {
+      "id": "fld_ctxuzxx2zz",
+      "name": "state",
+      "label": "%state%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_8vzktmxlt5",
+          "value": "draft",
+          "label": "%draft%"
+        },
+        {
+          "id": "opt_u070nbvibl",
+          "value": "review",
+          "label": "%review%"
+        },
+        {
+          "id": "opt_g2ztnu2i4p",
+          "value": "published",
+          "label": "%published%"
+        },
+        {
+          "id": "opt_nktkv7dhtk",
+          "value": "archived",
+          "label": "%archived%"
+        }
+      ],
+      "required": true,
+      "default": "draft",
+      "index": "plain"
+    },
+    {
+      "id": "fld_eov90qtnyy",
+      "name": "visibility",
+      "label": "%visibility%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_0at7piezde",
+          "value": "public",
+          "label": "%public%"
+        },
+        {
+          "id": "opt_judn6u0221",
+          "value": "customers",
+          "label": "%customers%"
+        },
+        {
+          "id": "opt_hoh0tpsyts",
+          "value": "agents",
+          "label": "%agents%"
+        }
+      ],
+      "required": true,
+      "default": "public",
+      "index": "plain"
+    },
+    {
+      "id": "fld_uglx63nutf",
+      "name": "author",
+      "label": "%author%",
+      "type": "string",
+      "max_length": 128
+    },
+    {
+      "id": "fld_xn7lzbyp1h",
+      "name": "reviewer",
+      "label": "%reviewer%",
+      "type": "string",
+      "max_length": 128
+    },
+    {
+      "id": "fld_sb2ts8qxb5",
+      "name": "published_at",
+      "label": "%published_at%",
+      "type": "datetime"
+    },
+    {
+      "id": "fld_muaxvt488u",
+      "name": "version",
+      "label": "%version%",
+      "type": "int",
+      "default": 1
+    },
+    {
+      "id": "fld_savx2x68kn",
+      "name": "featured",
+      "label": "%featured%",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "id": "fld_rcft3cy9ii",
+      "name": "tags_text",
+      "label": "%tags_text%",
+      "type": "string",
+      "max_length": 500,
+      "help": "Comma separated; searched with the title"
+    },
+    {
+      "id": "fld_h7t1xk5oqu",
+      "name": "ticket_type",
+      "label": "%ticket_type%",
+      "type": "link",
+      "target": "helpdesk.hd_ticket_type",
+      "target_id": "mdl_2wujlimcwq",
+      "help": "Suggest it first for tickets of this type"
+    },
+    {
+      "id": "fld_o5ob5qqwqe",
+      "name": "views",
+      "label": "%views%",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "id": "fld_nfkvww4xzg",
+      "name": "helpful_yes",
+      "label": "%helpful_yes%",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "id": "fld_6epko253n4",
+      "name": "helpful_no",
+      "label": "%helpful_no%",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "id": "fld_dhb41izppf",
+      "name": "from_ticket",
+      "label": "%from_ticket%",
+      "type": "link",
+      "target": "helpdesk_ticket.hd_ticket",
+      "target_id": "mdl_ujzde8gxd6",
+      "help": "The ticket this article was written from"
+    }
+  ]
+}

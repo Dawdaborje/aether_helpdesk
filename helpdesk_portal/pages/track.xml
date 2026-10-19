@@ -1,0 +1,29 @@
+<page route="/support/track/{reference}/{key}" title="Your request" public="true" menu="false">
+  <view type="form" source="portal_view">
+    <header>
+      <button label="Write to us" href="/support/track/{reference}/{key}/reply"/>
+      <button label="Rate our help" href="/support/track/{reference}/{key}/rate"/>
+      <button label="It is not solved" function="portal_reopen" confirm="Tell us it is not solved?"/>
+    </header>
+    <group title="Request" cols="2">
+      <field name="reference" label="Reference" readonly="true"/>
+      <field name="state" label="Status" readonly="true"/>
+      <field name="subject" label="Subject" readonly="true" colspan="2"/>
+      <field name="opened_at" label="Asked" fieldType="datetime" readonly="true"/>
+      <field name="rating" label="Your rating" readonly="true"/>
+      <field name="resolution" label="Outcome" readonly="true" colspan="2"/>
+    </group>
+    <notebook>
+      <page title="Conversation">
+        <view type="list" source="portal_messages">
+          <columns>
+            <column field="when" label="When" fieldType="datetime"/>
+            <column field="from" label="From" fieldType="badge"/>
+            <column field="body" label="Message"/>
+          </columns>
+          <empty title="No messages" description="Your messages and our answers appear here."/>
+        </view>
+      </page>
+    </notebook>
+  </view>
+</page>

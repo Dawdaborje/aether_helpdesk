@@ -1,0 +1,91 @@
+<page route="/helpdesk/tickets/{id}" title="Ticket" menu="false" model="hd_ticket" roles="helpdesk.hd_agent,helpdesk.hd_manager,helpdesk.hd_admin">
+  <view type="form" source="get_ticket" function="update_ticket" submit="Save">
+    <header>
+      <button label="Reply" href="/helpdesk/tickets/{id}/reply"/>
+      <button label="Note" href="/helpdesk/tickets/{id}/note"/>
+      <button label="Take" function="take_ticket"/>
+      <button label="Assign" href="/helpdesk/tickets/{id}/assign"/>
+      <button label="Wait for customer" function="wait_for_customer"/>
+      <button label="Hold" function="hold_ticket"/>
+      <button label="Resume" function="resume_ticket"/>
+      <button label="Resolve" href="/helpdesk/tickets/{id}/resolve"/>
+      <button label="Close" function="close_ticket" confirm="Close this ticket?"/>
+      <button label="Reopen" function="reopen_ticket"/>
+      <button label="Merge" href="/helpdesk/tickets/{id}/merge"/>
+      <button label="Sub-ticket" href="/helpdesk/tickets/{id}/subticket"/>
+    </header>
+    <statusbar field="state" options="new, open, pending, on_hold, resolved, closed"/>
+    <group title="Ticket" cols="2">
+      <field name="reference" label="Reference" readonly="true"/>
+      <field name="state" label="State" readonly="true"/>
+      <field name="subject" label="Subject" colspan="2"/>
+      <field name="channel" label="Channel" readonly="true"/>
+      <field name="due_at" label="Due" fieldType="datetime"/>
+      <field name="team" label="Team" fieldType="many2one" entity="teams"/>
+      <field name="assignee" label="Agent" readonly="true"/>
+      <field name="priority" label="Priority" fieldType="many2one" entity="priorities"/>
+      <field name="ticket_type" label="Type" fieldType="many2one" entity="types"/>
+      <field name="tags_text" label="Tags" readonly="true"/>
+      <field name="time_minutes" label="Time logged (minutes)" readonly="true"/>
+    </group>
+    <group title="Requester" cols="2">
+      <field name="customer" label="Customer" fieldType="many2one" entity="customers"/>
+      <field name="requester_name" label="Name"/>
+      <field name="requester_email" label="Email"/>
+      <field name="requester_phone" label="Phone"/>
+    </group>
+    <notebook>
+      <page title="Conversation">
+        <view type="list" source="ticket_thread">
+          <columns>
+            <column field="posted_at" label="When" fieldType="datetime"/>
+            <column field="visibility" label="" fieldType="badge"/>
+            <column field="author_label" label="From"/>
+            <column field="body" label="Message"/>
+            <column field="delivery" label="Email" fieldType="badge"/>
+          </columns>
+          <actions>
+            <action name="split" label="Split into a new ticket" function="split_ticket_message" confirm="Move this message into a new ticket?"/>
+          </actions>
+          <empty title="No messages" description="Replies and notes appear here."/>
+        </view>
+      </page>
+      <page title="Time">
+        <view type="list" source="list_ticket_time">
+          <columns>
+            <column field="logged_on" label="Day" fieldType="date"/>
+            <column field="agent" label="Agent"/>
+            <column field="minutes" label="Minutes"/>
+            <column field="billable" label="Billable" fieldType="boolean"/>
+            <column field="note" label="Note"/>
+          </columns>
+          <actions>
+            <action name="remove" label="Remove" function="delete_time_entry" confirm="Remove this entry?" danger="true"/>
+          </actions>
+          <empty title="No time yet" description="Log time with the Log time button."/>
+        </view>
+        <buttonbox>
+          <button label="Log time" href="/helpdesk/tickets/{id}/time" variant="outline"/>
+        </buttonbox>
+      </page>
+      <page title="Sub-tickets">
+        <view type="list" source="sub_tickets" open="/helpdesk/tickets/{id}">
+          <columns>
+            <column field="reference" label="Reference"/>
+            <column field="subject" label="Subject"/>
+            <column field="state" label="State" fieldType="badge"/>
+            <column field="assignee" label="Agent"/>
+          </columns>
+          <empty title="No sub-tickets" description="Split work into sub-tickets with the Sub-ticket button."/>
+        </view>
+      </page>
+      <page title="Resolution">
+        <group cols="2">
+          <field name="resolution" label="Resolution" readonly="true" colspan="2"/>
+          <field name="rating" label="Rating" readonly="true"/>
+          <field name="rating_comment" label="Comment" readonly="true"/>
+        </group>
+      </page>
+    </notebook>
+  </view>
+</page>

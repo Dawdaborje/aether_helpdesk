@@ -1,0 +1,65 @@
+{
+  "model_id": "mdl_0awt8l4b38",
+  "name": "hd_kb_revision",
+  "label": "%hd_kb_revision%",
+  "plural_label": "%hd_kb_revisions%",
+  "icon": "history",
+  "title_field": "title",
+  "fields": [
+    {
+      "id": "fld_m1456uy2oa",
+      "name": "article",
+      "label": "%article%",
+      "type": "link",
+      "target": "hd_kb_article",
+      "required": true,
+      "index": "plain"
+    },
+    {
+      "id": "fld_b70kqzub5n",
+      "name": "version",
+      "label": "%version%",
+      "type": "int",
+      "required": true
+    },
+    {
+      "id": "fld_r19q5tcui1",
+      "name": "title",
+      "label": "%title%",
+      "type": "string",
+      "max_length": 300
+    },
+    {
+      "id": "fld_k2zzqks9dj",
+      "name": "summary",
+      "label": "%summary%",
+      "type": "text"
+    },
+    {
+      "id": "fld_7pzctylmpc",
+      "name": "body",
+      "label": "%body%",
+      "type": "text"
+    },
+    {
+      "id": "fld_sxqbo2bpl6",
+      "name": "saved_by",
+      "label": "%saved_by%",
+      "type": "string",
+      "max_length": 128
+    },
+    {
+      "id": "fld_vklphga8vv",
+      "name": "saved_at",
+      "label": "%saved_at%",
+      "type": "datetime"
+    },
+    {
+      "id": "fld_iob0jdz6me",
+      "name": "note",
+      "label": "%note%",
+      "type": "string",
+      "max_length": 300
+    }
+  ]
+}
